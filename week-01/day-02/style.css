@@ -1,0 +1,64 @@
+body {
+    background: url("topography.png");
+    font-family: Courier;
+    margin: 0;
+}
+
+a {
+    color:#ff0099;
+    padding: 10px 0 0 5px;
+
+}
+
+span {
+    float: right;
+    padding: 10px 10% 0 0 ;
+
+}
+
+#alcim {
+    
+    color:#ff0099;
+}
+
+#separator {
+    color:grey;
+    text-align: center;
+    padding: 30px 10% 30px 10%;
+
+}
+
+#tech {
+
+    text-align: center;
+    padding: 0 10% 20px 10%;
+}
+
+h1 {
+    padding: 30px 10% 10px 10%;
+
+
+}
+
+header {
+    background-color: #333333;
+    padding: 10px 0 10px 5px;
+
+}
+
+.border {
+
+    padding: 0 10% 0 10%;
+}
+
+dt {
+
+    padding: 10px 0 10px 0;
+    font-weight: bold ;
+
+}
+
+#instruction {
+    
+    padding: 0 10% 10px 10%;
+}
