@@ -1,0 +1,36 @@
+
+p {
+  background-color: purple;
+  font-size: 36px;
+  color:white;
+  margin: 0 0 10px 0;
+  width:136px;
+  height: 86px;
+  border-radius: 136px; 
+  text-align: center;
+  padding: 50px 0 0 0;
+  display: inline-block;
+}
+
+p:nth-child(2) {
+  background-color: rgb(9, 212, 178);
+
+}
+p:nth-child(3) {
+  background-color: rgb(9, 212, 178);
+
+}
+p:nth-child(5) {
+  background-color: rgb(9, 212, 178);
+
+}
+p:nth-child(6) {
+
+  background-color: rgb(9, 212, 178);
+
+}
+p:nth-child(7) {
+
+  background-color: rgb(240, 174, 33);
+
+}

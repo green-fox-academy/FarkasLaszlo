@@ -1,0 +1,27 @@
+h2 {
+  color:orange;
+}
+
+h3 {
+  color:purple;
+}
+p {
+  padding: 0 75% 0 0;
+
+
+}
+
+ol {
+list-style-type: upper-roman;
+
+}
+ol{
+color:rgb(243, 62, 204);
+text-decoration-line: underline;
+}
+
+ol > li:last-child {
+
+  color:black;
+  text-decoration-line: underline;
+}
