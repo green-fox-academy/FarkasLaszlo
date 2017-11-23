@@ -20,16 +20,7 @@ p:nth-child(3) {
   background-color: rgb(9, 212, 178);
 
 }
-p:nth-child(5) {
-  background-color: rgb(9, 212, 178);
-
-}
-p:nth-child(6) {
-
-  background-color: rgb(9, 212, 178);
-
-}
-p:nth-child(7) {
+p:nth-child(4) {
 
   background-color: rgb(240, 174, 33);
 
