@@ -1,0 +1,43 @@
+h1 {
+  margin: 0 0 10px 5%;
+
+}
+p {
+  margin: 0 0 0 5%;
+  border: 2px solid black;
+  width: 345px;
+  height: 105px;
+  text-align: left;
+  padding: 5px;
+  border-top: white;
+}
+
+p:last-child{
+  border-bottom: white;
+}
+
+p:hover {
+  background-color: orange;
+
+}
+p:hover:nth-child(2) {
+  background-color: green;
+}
+p:hover:nth-child(3) {
+  background-color: blue;
+}
+p:hover:nth-child(4) {
+  background-color: yellow;
+}
+p:hover:nth-child(5) {
+  background-color: red;
+}
+p:hover:nth-child(6) {
+  background-color: purple;
+}
+p:hover:nth-child(7) {
+  background-color: grey;
+}
+p:hover:nth-child(8) {
+  background-color: aqua;
+}
