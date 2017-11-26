@@ -1,0 +1,35 @@
+p{
+  font-size:16px;
+  font-family:courier;
+  width: 225px;
+  color:white;
+  text-align: center;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 10px 10px 25px;
+}
+
+p:first-child {
+  height: 80px;
+  background-color: red;
+  background-image: url("duck.png");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+p:nth-child(2) {
+  height: 160px;
+  background-color: purple;
+  background-image: url("duck.png");
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+p:nth-child(3) {
+  height: 230px;
+  background-color: grey;
+  background-image: url("duck.png");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+}

@@ -1,0 +1,221 @@
+body {
+  padding:0;
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(63, 61, 61);
+
+}
+#greenbox {
+  width: 620px;
+  height: 1000px;
+  background-color: #dcd6cd;
+  padding:0;
+  left: 50%;
+  position: absolute;
+  margin: 20px 0 0 -310px;
+}
+.yellowbox {
+  border: 10px solid #dcd6cd;
+  left: 50%;
+  position: absolute;
+}
+
+.topbox {
+  width: 600px;
+  height: 15px;
+  padding: 5px 0 5px 0;
+  margin: 20px 0 0 -310px;
+  font-size:18px;
+
+}
+
+.bigbox {
+  width: 290px;
+  height: 405px;
+  padding: 15px 0 0 0;
+  display:inline-block;
+}
+
+#left {
+  left: 50%;
+  position: absolute;
+  margin: 85px 0 0 -310px;
+
+}
+#right {
+  right: 50%;
+  position: absolute;
+  margin: 85px -310px 0 0;
+}
+
+.bottombox {
+    width: 600px;
+    height: 378px;
+    padding: 10px 0 0 0;
+    margin: 540px 0 0 -310px;
+  
+}
+
+.personal {
+  width: 290px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid #dcd6cd;
+  font-size: 18px;
+  padding: 5px 0 5px 10px;
+  border-radius: 4px;
+  background-color: grey;
+  color: white;
+  margin: 0 0 10px 0;
+}
+#name {
+  width: 290px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid #dcd6cd;
+  margin: 10px 0 10px 0; 
+}
+#cimke {
+  display: inline-block;
+
+}
+#nemed {
+  margin-left: 50px;
+}
+#gender {
+  border: 1px solid #dcd6cd;
+width: 140px;
+height: 32px;
+box-sizing: border-box;
+display: inline-block;
+}
+#birthtime {
+width: 140px;
+height: 32px;
+display: inline-block;
+margin: 10px 0 10px 0;
+}
+#mark {
+  border: 1px solid #dcd6cd;
+width: 140px;
+height: 152px;
+box-sizing: border-box;
+padding: 0;
+}
+#mark2 {
+  border: 1px solid #dcd6cd;
+width: 140px;
+height: 152px;
+box-sizing: border-box;
+padding: 0;
+left: 50%;
+position: absolute;
+margin: -152px 0 0 00px;
+}
+.marks1 {
+  width: 120px;
+  height: 25px;
+  margin:0;
+  padding: 0;
+
+}
+.connect {
+  border: 1px solid #dcd6cd;
+width: 290px;
+height: 37px;
+box-sizing: border-box;
+font-size: 18px;
+padding: 0px 0 5px 0px;
+border-radius: 4px;
+}
+
+textarea {
+  width: 600px;
+  height: 166px;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px 0 0 0;
+
+
+}
+input:nth-child(4)[type="submit"] {
+  display: block;
+
+
+}
+#savebox {
+  display: inline-block;
+
+}
+input[type="text"]{
+  width: 288px;
+  height:38px;
+
+  box-sizing: border-box;
+
+}
+
+label {
+  font-weight: bold;
+
+}
+label:first {
+  font-weight: normal;
+
+}
+p:nth-child(2) {
+  display: inline-block;
+
+}
+
+.onlineinfo {
+  width: 290px;
+  height: 37px;
+  box-sizing: border-box;
+  margin: 10px 0 10px 0;
+  font-size: 18px;
+  border-radius:4px;
+  padding: 0px 0 0px 0px;
+
+}
+input[value="fájl kiválasztása"] {
+  width: 219px;
+  height: 36px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 10px 0 10px 0;
+
+}
+input[value="mentés"] {
+  width: 219px;
+  height: 46px;
+  font-size: 18px;
+  color:white;
+  background-color: rgb(88, 87, 87);
+  text-transform: uppercase;
+  margin: 0 219px 0 0;
+}
+input[value="ürlap törlése"] {
+  width: 158px;
+  height: 46px;
+  font-size: 12px;
+  text-transform: uppercase;
+
+}
+span {
+  color:red;
+}
+
+article {
+  color: #857969;
+  margin: 10px 0 0 0;
+}
+
+a {
+  color: #6b6155;
+}
+
+label[for="female"] {
+margin: 0 20px 0 0px;
+
+}

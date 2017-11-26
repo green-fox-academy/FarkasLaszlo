@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link href="style.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+      <title>Color Box</title>
+    </head>
+    <body>
+      <div id="greenbox" >
+          <div class="topbox yellowbox">
+            <label>Profil</label>
+          </div>
+          <div class="bigbox yellowbox" id="left">
+            <div class="personal">
+              Személyes adatok
+            </div>
+            <label>Név <span>*</span></label>
+            <div id="name">
+                <input type="text"> 
+              </div>
+            <div id="birthdata">
+              <div id="cimke">
+                <label >Születési éved</label>
+                <label id="nemed">Nemed</label>
+              </div>
+              <input type="text" id="birthtime" placeholder="pl. 1984">
+              <div id="gender">
+                  <input type="radio" id="felmale" name="gender">
+                  <label for="female">Nő</label>
+                  <input type="radio" id="male" name="gender">
+                  <label for="male">Férfi</label>
+                </div>
+            </div>
+            <label>Milyen márkákat szeretsz?</label>
+            <div id="mark">
+              <div class="marks1">
+                <input type="checkbox">
+                <p>Adidas</p>
+              </div>
+              <div class="marks1">
+                  <input type="checkbox">
+                  <p>Apple</p>
+            </div>
+            <div class="marks1">
+                <input type="checkbox">
+                <p>Cola</p>
+            </div>
+            <div class="marks1">
+                <input type="checkbox">
+                <p>Mazda</p>
+            </div>
+            <div class="marks1">
+                <input type="checkbox">
+                <p>Nike</p>
+            </div>
+            </div>
+            <div id="mark2">
+                <div class="marks1">
+                  <input type="checkbox">
+                  <p>Opel</p>
+                </div>
+                <div class="marks1">
+                    <input type="checkbox">
+                    <p>Ray-Ban</p>
+              </div>
+              <div class="marks1">
+                  <input type="checkbox">
+                  <p>Starbucks</p>
+              </div>
+              <div class="marks1">
+                  <input type="checkbox">
+                  <p>Tesla</p>
+              </div>
+              <div class="marks1">
+                  <input type="checkbox">
+                  <p>Yahoo</p>
+              </div>
+              </div>
+            <article>Többet is választhatsz!</article>
+          </div>
+          <div class="bigbox yellowbox" id="right">
+            <div class="personal">Kapcsolat</div>
+            <label>Telefonszám <span>*</span></label>
+              <input type="tel" class="onlineinfo" placeholder="+36 -- --- ----">
+
+            <label>E-mail cím <span>*</span></label>
+                <input type="email" class="onlineinfo" placeholder="valami@valami.com">
+
+            <label>Facebook profilod</label>
+                <input type="url" class="onlineinfo" placeholder="http://facebook.com/...">
+
+            <label>Twitter profilod</label>
+                <input type="url" class="onlineinfo" placeholder="http://twitter.com/...">
+
+            <label>Milyen házban laksz?</label>
+                <input list="house" class="onlineinfo" name="myBrowser" placeholder="Válassz típust!" />
+                <datalist id="house">
+                    <option value="panelház">
+                    <option value="kertesház">
+                    <option value="motel">
+                    <option value="sátor">
+                    <option value="ikerház">
+                    <option value="felhőkarcoló">
+                  </datalist>
+          </div>
+          <div class="bottombox yellowbox">
+              <label >Bemutatkozás <span>*</span></label>
+              <textarea placeholder="Írj magadról pár mondatot!"></textarea>
+              <label>CV feltöltése</label>
+              <input type="submit" value="fájl kiválasztása" />
+              <div id="licence" >
+                <input type="checkbox"/>
+                <p>Elfogadom a</p>
+                <a href="https://google.hu">felhasználási feltételeket</a>
+              </div>
+              <div id=savebox>
+              <input type="submit" value="mentés" />
+              <input type="submit" value="ürlap törlése" />
+
+              </div>
+
+
+          </div>
+
+      </div>
+      
+    </body>
+  </html>
