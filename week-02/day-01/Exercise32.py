@@ -12,6 +12,7 @@
 # The square should have as many lines as the number was
 a = input("A number: ")
 a = int(a)
+a -=1
 n = 1
 b = "%"
 c = " "
