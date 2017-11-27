@@ -12,7 +12,8 @@
 b= " "
 c= "%"
 a=0
-while a<4:
-    print(c+b+c+b+c+b+c+b)
-    print(b+c+b+c+b+c+b+c)
+n=4
+while a<n:
+    print((c+b)*n)
+    print((b+c)*n)
     a+=1
