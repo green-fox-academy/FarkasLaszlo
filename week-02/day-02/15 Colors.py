@@ -33,6 +33,6 @@ for x in range(3):
             a[x][y] = '"pink"'
         elif x == 2 and y == 3:
             a[x][y] = '"hot pink"'
-
-for row in a:
-    print(" ".join('{0:4}'.format(i or " ") for i in row))
+        if a[x][y] != 0:
+            print(a[x][y], end=' ')
+    print('')
