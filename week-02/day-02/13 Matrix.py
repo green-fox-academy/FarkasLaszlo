@@ -12,6 +12,5 @@ for x in range(4):
     for y in range(4):
         if x==y:
             a[x][y]=1
-    print(a[x])
+            print(a[x])
 
-print(a)
