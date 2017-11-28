@@ -5,7 +5,7 @@ def factorio(a):
     a = input("A number: ")
     a = int(a)
     b = a
-    while a>1:
+    while a > 1:
         a -= 1
         b *= a
     return b

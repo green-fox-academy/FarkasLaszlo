@@ -3,9 +3,9 @@
 # - Print the sum of the elements in `ai`
 
 ai = [3,4,5,6,7]
-sum =0
+sum = 0
 i=0
 for i in range(len(ai)):
-    sum +=ai[i]
+    sum += ai[i]
 
 print(sum)
