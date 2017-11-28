@@ -7,10 +7,13 @@
 #   0 0 0 1
 #
 # - Print this two dimensional list to the output
-a = [[0 for x in range(4)] for y in range(4)]
+a = [["0" for x in range(4)] for y in range(4)]
 for x in range(4):
     for y in range(4):
         if x==y:
-            a[x][y]=1
-            print(a[x])
+            a[x][y]="1"
+        else: a[x][y]="0"
 
+
+for row in a:
+    print(" ".join('{0:2}'.format(i or " ") for i in row))
