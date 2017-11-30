@@ -8,6 +8,7 @@ def palindrome_search(input_string):
             x = input_string[i:i+length:1]
             if x == x[::-1]:
                 a.append(x)
+
         length += 1
 
     print(a)
