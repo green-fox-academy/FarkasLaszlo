@@ -1,5 +1,5 @@
 input_list = [19, 2, 3, 25, 21, 19, 32, 31, 41, 65, 45167, 161, 710, 18, 18312, 818]
-number = 7
+number = 1
 
 def part(input_list, number):
     out = []
@@ -10,8 +10,6 @@ def part(input_list, number):
                 if n == 0:
                     out.append(i)
                     n += 1
-
-
     return out
 
-print(part(input_list,number))
+print(part(input_list, number))

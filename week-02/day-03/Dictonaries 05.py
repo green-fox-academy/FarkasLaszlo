@@ -21,7 +21,10 @@ ingredients = [
 	{ "name": "mint_leaves", "in_stock": 0, "needs_cooling": False },
 	{ "name": "sugar", "in_stock": 0, "needs_cooling": False },
 	{ "name": "lime juice", "in_stock": 0, "needs_cooling": True },
-	{ "name": "soda", "in_stock": 0, "needs_cooling": True }
+	{ "name": "soda", "in_stock": 0, "needs_cooling": True },
+	{ "name": "water", "in_stock": 0, "needs_cooling": True },
+	{ "name": "something with very long name", "in_stock": 1, "needs_cooling": False },
+	{ "name": "cola", "in_stock": 0, "needs_cooling": True }
 ]
 def box(ingredients):
     first_length = []

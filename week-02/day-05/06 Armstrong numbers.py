@@ -1,3 +1,4 @@
+
 number = input("Your number: ")
 number = int(number)
 a = [int(i) for i in str(number)]
@@ -9,8 +10,3 @@ if b == number:
     print("The", number, "is an Armstrong number")
 else:
     print("The", number, "is not an Armstrong number")
-
-
-
-
-
