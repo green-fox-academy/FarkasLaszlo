@@ -31,22 +31,20 @@ def box(ingredients):
     second_length = len(" Needs cooling ")
     third_length = len(" In stock ")
 
+    stock = []
+    cool_list = []
     for i in range(len(ingredients)):
         if len(first_length)<len(ingredients[i]['name']):
             first_length = ingredients[i]['name']
-
-    cool_list = []
-    for i in range(len(ingredients)):
         if ingredients[i]['needs_cooling'] == True:
             cool_list.append("Yes")
-        else:cool_list.append("No")
-
-    stock = []
-    for i in range(len(ingredients)):
+        else:
+            cool_list.append("No")
         if ingredients[i]['in_stock'] == 0:
             stock.append("-")
         else:
             stock.append(str(ingredients[i]['in_stock']))
+
 
     print("+"+"-"*(len(first_length)+2)+"+"+"-"*second_length+"+"+"-"*third_length+"+")
     print("|"+" "+"Ingredient"+" "*(len(first_length)-len("Ingredient ") +2)+"|"+" Needs cooling "+"|"+" In stock "+"|")
