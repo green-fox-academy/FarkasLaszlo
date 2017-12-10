@@ -13,31 +13,12 @@ def star(base,depth):
         for i in range(6):
             t.forward(base/3)
             t.right(60)
-        t.forward(2*base/3)
-        star(base/3,depth-1)
-        for i in range(7):
-            t.forward(base/3)
-            t.right(60)
-        t.forward(2*base/3)
-        star(base/3,depth-1)
-        for i in range(7):
-            t.forward(base/3)
-            t.right(60)
-        t.forward(2*base/3)
-        star(base/3,depth-1)
-        for i in range(7):
-            t.forward(base/3)
-            t.right(60)
-        t.forward(2*base/3)
-        star(base/3,depth-1)
-        for i in range(7):
-            t.forward(base/3)
-            t.right(60)
-        t.forward(2*base/3)
-        star(base/3,depth-1)
-        for i in range(7):
-            t.forward(base/3)
-            t.right(60)
+        for x in range(5):
+            t.forward(2*base/3)
+            star(base/3,depth-1)
+            for i in range(7):
+                t.forward(base/3)
+                t.right(60)
         t.forward(base)
         t.right(60)
 
@@ -56,7 +37,7 @@ t.left(90)
 t.forward(300)
 t.right(90)
 t.pendown()
-star(300,10)
+star(300,7)
 hex.update()
 hex.exitonclick()
 

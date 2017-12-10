@@ -6,30 +6,14 @@ def lot_hex(base,depth):
         for i in range(6):
             t.forward(base)
             t.right(60)
-        for i in range(6):
-            t.forward(base/2)
-            t.right(60)
-        lot_hex(base/2,depth-1)
-        t.forward(base)
-        t.right(60)
-        t.forward(base)
-        t.right(60)
-        lot_hex(base/2,depth-1)
-        for i in range(6):
-            t.forward(base/2)
-            t.right(60)
-        t.forward(base)
-        t.right(60)
-        t.forward(base)
-        t.right(60)
-        lot_hex(base/2,depth-1)
-        for i in range(6):
-            t.forward(base/2)
-            t.right(60)
-        t.forward(base)
-        t.right(60)
-        t.forward(base)
-        t.right(60)
+        for x in range(3):
+            lot_hex(base/2,depth-1)
+            for i in range(6):
+                t.forward(base/2)
+                t.right(60)
+            for i in range(2):
+                t.forward(base)
+                t.right(60)
 
 
 t = turtle.Turtle()
