@@ -7,7 +7,8 @@
 #Every animal can play() which increases both by one
 
 class Animal():
-    def __init__(self, hunger = 50, thirst = 50):
+    def __init__(self, name, hunger = 50, thirst = 50):
+        self.name = name
         self.hunger = hunger
         self.thirst = thirst
 

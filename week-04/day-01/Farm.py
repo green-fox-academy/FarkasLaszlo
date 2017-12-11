@@ -8,27 +8,30 @@ from animal import Animal
 
 from animal import Animal
 
-class Farm(object):
+class Farm():
     def __init__(self, slots):
         self.animal = []
         self.slots = slots
 
     def add(self, animal):
-        self.animal.append(animal)
-        self.slots -= 1
+        if self.slots > 0:
+            self.animal.append(animal)
+            self.slots -= 1
 
-    def breed(self):
-        if self.slot > 0:
-            new_animal = Animal()
+    def breed(self,name,hunger=50,thirst=50):
+        if self.slots > 0:
+            new_animal = Animal(name,hunger,thirst)
             self.animal.append(new_animal)
             self.slots -= 1
 
     def slaughter(self):
-        hunger = 0
-        for i in range(len(self.animal)):
-            if self.animal[i].hunger > hunger:
-                hunger = self.animal[i].hunger
-        for i in range(len(self.animal)):
-            if self.animal[i].hunger == hunger:
-                self.animal.remove(self.animal)
-        self.slots += 1
+        self.animal.sort(key=lambda x: x.hunger, reverse=False)
+        del(self.animal[0])
+
+    def __str__(self):
+        result = ""
+        for i in range(0, len(self.animal)):
+            result += str(i + 1) + ". " + self.animal[i].__str__() + "\n"
+        return result
+
+
