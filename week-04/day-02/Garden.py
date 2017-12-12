@@ -22,13 +22,13 @@ class Garden():
         number /= count
         for i in range(len(self.garden)):
             if self.garden[i].type == "Flower" and self.garden[i].water_level < 5:
-                self.garden[i].water_level = number * 0.75
+                self.garden[i].water_level += number * 0.75
                 if self.garden[i].water_level < 5:
                     print("The "+str(self.garden[i].name)+" "+str(self.garden[i].type)+" needs water")
                 else:
                     print("The "+str(self.garden[i].name)+" "+str(self.garden[i].type)+" doesn't need water")
             elif self.garden[i].type == "Tree" and self.garden[i].water_level < 10:
-                self.garden[i].water_level = number * 0.4
+                self.garden[i].water_level += number * 0.4
                 if self.garden[i].water_level < 10:
                     print("The "+str(self.garden[i].name)+" "+str(self.garden[i].type)+" needs water")
                 else:
