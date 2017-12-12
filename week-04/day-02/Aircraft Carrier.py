@@ -24,12 +24,12 @@ class Aircraft:
     def gettype(self):
         return self.type
 
-    def getStatus(self):
+    def getstatus(self):
         print("Type " + self.type+", Ammo:" + str(self.ammo) + " Base Damage: " + str(self.damage)
               + " All damage " + str(self.damage*self.ammo))
 
 
-class Carrier():
+class Carrier:
     def __init__(self, aircrafts, initial_ammo=30, health_point=5000):
         self.aircrafts = aircrafts
         self.initial_ammo = initial_ammo
@@ -75,6 +75,7 @@ class Carrier():
         damage = 0
         for i in range(len(self.aircrafts)):
             damage += self.aircrafts[i].damage * self.aircrafts[i].ammo
+            self.aircrafts[i].ammo = 0
         carrier.health_point -= damage
         if carrier.health_point < 0 and self.health_point > 0:
             print("We won")
@@ -108,7 +109,7 @@ aircraft4 = Aircraft("F35")
 aircraft5 = Aircraft("F35")
 aircraft7 = Aircraft("F35")
 
-carrier1 = Carrier([], 50, 1000)
+carrier1 = Carrier([], 500, 1000)
 carrier1.addAircraft(aircraft1)
 carrier1.addAircraft(aircraft2)
 carrier1.addAircraft(aircraft6)
@@ -119,5 +120,9 @@ carrier1.addAircraft(aircraft7)
 carrier1.fill()
 carrier1.getstatus()
 
-carrier2 = Carrier([], 10, 1000)
+carrier2 = Carrier([], 10, 5000)
+carrier1.fight(carrier2)
+carrier1.fill()
+carrier1.getstatus()
+carrier1.fight(carrier2)
 carrier1.fight(carrier2)
