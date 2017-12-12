@@ -15,6 +15,9 @@ class Garden():
                 count += 1
             elif self.garden[i].type == "Tree" and self.garden[i].water_level < 10:
                 count += 1
+        if count == 0:
+            print("Nothing needs water")
+            return
         print("Watering with "+str(number))
         number /= count
         for i in range(len(self.garden)):
@@ -58,6 +61,7 @@ flower3 = Flower("green")
 garden1 = Garden([])
 garden1.add_flower(flower1)
 garden1.add_flower(flower2)
+garden1.add_flower(flower3)
 garden1.add_tree(tree1)
 garden1.add_tree(tree2)
 garden1.watering(0)
