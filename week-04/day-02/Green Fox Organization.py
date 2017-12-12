@@ -5,10 +5,10 @@ class Person:
         self.gender = gender
 
     def introduce(self):
-        print("Hi, I'm "+self.name+", a "+str(self.age)+" year old "+self.gender)
+        print("Hi, I'm "+self.name+", a "+str(self.age)+" year old "+self.gender+".")
 
     def get_goal(self):
-        print("My goal is: Live for the moment")
+        print("My goal is: Live for the moment.")
 """
 person1 = Person("Laci",28,"male")
 person1.introduce()
@@ -18,7 +18,7 @@ person1.get_goal()
 
 class Student(Person):
     def __init__(self, name="Jane Doe", age=30, gender="female", previous_organization="School of Life", skipped_days=0):
-        super().__init__(name ,age, gender)
+        super().__init__(name, age, gender)
         self.previous_organization = previous_organization
         self.skipped_days = skipped_days
 
@@ -49,7 +49,7 @@ class Mentor(Person):
         print("My goal is: Educate brilliant junior software developers.")
 
     def introduce(self):
-        print("Hi, I'm "+self.name+", a "+str(self.age)+" year old "+self.gender+" "+self.level+" mentor.")
+        print("Hi, I'm "+self.name+", a " + str(self.age) + " year old "+self.gender+" "+self.level+" mentor.")
 
 
 """
@@ -65,7 +65,7 @@ class Sponsor(Person):
         self.hired_students = hired_students
 
     def introduce(self):
-        print("Hi, I'm "+self.name+", a "+str(self.age)+" year old "+self.gender+" who represents "+self.company+" and hired "+str(self.hired_students)+" students so far.")
+        print("Hi, I'm " + self.name+", a " + str(self.age)+" year old " + self.gender+" who represents " + self.company + " and hired " + str(self.hired_students) + " students so far.")
 
     def get_goal(self):
         print("My goal is: Hire brilliant junior software developers.")
@@ -83,20 +83,21 @@ sponsor1.introduce()
 """
 
 
-class PallidaClass():
-    def __init__(self, class_name, students=[], mentors=[]):
+class PallidaClass:
+    def __init__(self, class_name, students, mentors):
         self.class_name = class_name
         self.students = students
         self.mentors = mentors
 
-    def add_student(self,student):
+    def add_student(self, student):
         self.students.append(student)
 
-    def add_mentor(self,mentor):
+    def add_mentor(self, mentor):
         self.mentors.append(mentor)
 
     def info(self):
-        print("Pallida " + self.class_name + " class has " + str(len(self.students)) + " students and " + str(len(self.mentors)) + " mentors.")
+        print("Pallida " + self.class_name + " class has " + str(len(self.students)) + " students and "
+              + str(len(self.mentors)) + " mentors.")
 
 
 people = []
@@ -127,7 +128,7 @@ for member in people:
     member.introduce()
     member.get_goal()
 
-badass = PallidaClass('BADCAT')
+badass = PallidaClass('BADCAT', [], [])
 badass.add_student(student)
 badass.add_student(john)
 badass.add_mentor(mentor)
