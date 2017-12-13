@@ -6,15 +6,15 @@ class TestAnimal(unittest.TestCase):
 
     def test_Animal_name(self):
         animal1 = Animal("dog")
-        self.assertEqual(animal1.name,"dog")
+        self.assertEqual(animal1.name, "dog")
 
     def test_Animal_hunger(self):
         animal1 = Animal("dog")
-        self.assertEqual(animal1.hunger,50)
+        self.assertEqual(animal1.hunger, 50)
 
     def test_Animal_thirst(self):
         animal1 = Animal("dog")
-        self.assertEqual(animal1.thirst,50)
+        self.assertEqual(animal1.thirst, 50)
 
     def test_Animal_eat(self):
         animal1 = Animal("dog")

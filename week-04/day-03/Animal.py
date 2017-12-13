@@ -1,5 +1,5 @@
-class Animal():
-    def __init__(self, name, hunger = 50, thirst = 50):
+class Animal:
+    def __init__(self, name, hunger=50, thirst=50):
         self.name = name
         self.hunger = hunger
         self.thirst = thirst

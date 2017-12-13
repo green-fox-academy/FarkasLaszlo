@@ -2,13 +2,12 @@ import unittest
 from fibonacci import fibonacci
 
 
-class TestSumma(unittest.TestCase):
-    def test_ficonacci(self):
+class TestFibonacci(unittest.TestCase):
+    def test_fibonacci(self):
         self.assertEqual(fibonacci(0), 0)
 
-    def test_ficonacci_4th_element(self):
+    def test_fibonacci_4th_element(self):
         self.assertEqual(fibonacci(4), 3)
-
 
 
 if __name__ == '__main__':

@@ -8,7 +8,6 @@ class TestApple(unittest.TestCase):
         apple1 = Apple()
         self.assertEqual(apple1.get_apple("apple"), "apple")
 
-
     def test_Some_String(self):
         apple1 = Apple()
         self.assertEqual(apple1.get_apple("Some String"), "Some String")

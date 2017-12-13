@@ -3,6 +3,7 @@ def add(a, b):
     summa = a + b
     return summa
 
+
 # Returns the highest value from the three given params
 def max_of_three(a, b, c):
     if a >= b and a >= c:
@@ -12,12 +13,14 @@ def max_of_three(a, b, c):
     else:
         return c
 
+
 # Returns the median value of a list given as param
 def median(pool):
     summa = 0
     for i in range(len(pool)):
         summa += pool[i]
     return summa/len(pool)
+
 
 # Returns true if the param is a vovel
 def is_vovel(char):
@@ -27,9 +30,10 @@ def is_vovel(char):
         elif char in 'AEIOUÉÁŐŰÖÜÓÍ':
             return char
 
+
 # Create a method that translates hungarian into the teve language
 def translate(hungarian):
-    if hungarian =="":
+    if hungarian == "":
         return ""
     elif hungarian[0] in "aeiouéáőűöüóí" or hungarian[0] in "AEIOUÉÁŐŰÖÜÓÍ":
         if hungarian[0] in "AEIOUÉÁŐŰÖÜÓÍ":

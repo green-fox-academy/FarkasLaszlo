@@ -1,6 +1,7 @@
 import unittest
 import Extension
 
+
 class TestExtend(unittest.TestCase):
 
     def setUp(self):
@@ -28,10 +29,10 @@ class TestExtend(unittest.TestCase):
         self.assertEqual(Extension.max_of_three(5, 5, 3), 5)
 
     def test_median_four(self):
-        self.assertEqual(Extension.median([7,5,3,5]), 5)
+        self.assertEqual(Extension.median([7, 5, 3, 5]), 5)
 
     def test_median_five(self):
-        self.assertEqual(Extension.median([1,2,3,4,5]), 3)
+        self.assertEqual(Extension.median([1, 2, 3, 4, 5]), 3)
 
     def test_median_diff(self):
         self.assertEqual(Extension.median([2, 2, 5, 1, 0]), 2)
@@ -71,6 +72,7 @@ class TestExtend(unittest.TestCase):
 
     def test_translate_empty(self):
         self.assertEqual(Extension.translate(''), '')
+
 
 if __name__ == '__main__':
     unittest.main()

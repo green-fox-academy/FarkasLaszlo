@@ -1,4 +1,4 @@
 class Apple:
 
-    def get_apple(self,string):
+    def get_apple(self, string):
         return string

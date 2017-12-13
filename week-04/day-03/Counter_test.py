@@ -2,7 +2,7 @@ import unittest
 from Counter import counter
 
 
-class TestCAB(unittest.TestCase):
+class TestCounter(unittest.TestCase):
 
     def test_counter_valami(self):
         self.assertEqual(counter("valami"), {"v": 1, "a": 2, "l": 1, "m": 1, "i": 1})
@@ -17,7 +17,5 @@ class TestCAB(unittest.TestCase):
         self.assertEqual(counter("AaAaAaaaaAA"), {'A': 5, 'a': 6})
 
 
-
-
 if __name__ == '__main__':
-     unittest.main()
+    unittest.main()
