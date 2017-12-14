@@ -33,6 +33,10 @@ class TestCAB(unittest.TestCase):
         cab1 = CAB("playing", 0, 1234)
         self.assertEqual(cab1.guess(1444), ["cow", "bull", "bull", "cow"])
 
+    def test_CAB_number7(self):
+        cab1 = CAB("playing", 0, 4444)
+        self.assertEqual(cab1.guess(4444), ["cow", "cow", "cow", "cow"])
+
     def test_CAB_finished(self):
         cab1 = CAB("playing", 0, 1234)
         cab1.guess(1234)
