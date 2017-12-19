@@ -10,7 +10,7 @@ wall = PhotoImage(file="wall.png")
 
 
 def read_file():
-    file = open("map2.txt", "r")
+    file = open("map.txt", "r")
     line = file.readlines()
     file.close()
     return line
@@ -85,7 +85,7 @@ def draw_map(floor, wall):
             elif line[i][x] == "1":
                 canvas.create_image(x*72+36, 72*i+36, image=wall)
 
-draw_random_map()
+
 draw_map(floor, wall)
 hero1 = Hero(canvas)
 hero1.draw_right()
@@ -95,24 +95,28 @@ monsters1.draw_monsters()
 
 def on_key_press(e):
     line = read_file()
-    if e.keycode == 38 and hero1.heroy > 36 and line[hero1.heroy//72 - 1][hero1.herox//72] == "0":
+    if e.keycode == 38:
+        if hero1.heroy > 36 and line[hero1.heroy//72 - 1][hero1.herox//72] == "0":
+            hero1.heroy = hero1.heroy - 72
         draw_map(floor, wall)
-        hero1.heroy = hero1.heroy - 72
         hero1.draw_up()
         monsters1.draw_monsters()
-    elif e.keycode == 40 and hero1.heroy < 756 and line[hero1.heroy//72 + 1][hero1.herox//72] == "0":
+    elif e.keycode == 40:
+        if hero1.heroy < (len(line)-1) * 72 + 36 and line[hero1.heroy//72 + 1][hero1.herox//72] == "0":
+            hero1.heroy = hero1.heroy + 72
         draw_map(floor, wall)
-        hero1.heroy = hero1.heroy + 72
         hero1.draw_down()
         monsters1.draw_monsters()
-    elif e.keycode == 37 and hero1.herox > 36 and line[hero1.heroy//72][hero1.herox//72 - 1] == "0":
+    elif e.keycode == 37:
+        if hero1.herox > 36 and line[hero1.heroy//72][hero1.herox//72 - 1] == "0":
+            hero1.herox = hero1.herox - 72
         draw_map(floor, wall)
-        hero1.herox = hero1.herox - 72
         hero1.draw_left()
         monsters1.draw_monsters()
-    elif e.keycode == 39 and hero1.herox < 684 and line[hero1.heroy//72][hero1.herox//72 + 1] == "0":
+    elif e.keycode == 39:
+        if hero1.herox < len(line) * 72 - 36 and line[hero1.heroy//72][hero1.herox//72 + 1] == "0":
+            hero1.herox = hero1.herox + 72
         draw_map(floor, wall)
-        hero1.herox = hero1.herox + 72
         hero1.draw_right()
         monsters1.draw_monsters()
 
