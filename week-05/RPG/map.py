@@ -1,15 +1,16 @@
 from tkinter import *
-from draw_random_map import *
+import random
+from draw_random_map import draw_random_map
 
 root = Tk()
-canvas = Canvas(root, width=720, height=792)
+canvas = Canvas(root, width=792, height=792)
 
 floor = PhotoImage(file="floor.png")
 wall = PhotoImage(file="wall.png")
 
 
 def read_file():
-    file = open("map.txt", "r")
+    file = open("map2.txt", "r")
     line = file.readlines()
     file.close()
     return line
@@ -83,7 +84,6 @@ def draw_map(floor, wall):
                 canvas.create_image(x*72+36, 72*i+36, image=floor)
             elif line[i][x] == "1":
                 canvas.create_image(x*72+36, 72*i+36, image=wall)
-
 
 draw_random_map()
 draw_map(floor, wall)
