@@ -2,7 +2,7 @@ import unittest
 from Unique_Characters import unique_character
 
 
-class Test_unique_character(unittest.TestCase):
+class Test_Unique_Character(unittest.TestCase):
 
     def test_unique_valami(self):
         self.assertEqual(unique_character("valami"), ["v", "l", "m", "i"])
