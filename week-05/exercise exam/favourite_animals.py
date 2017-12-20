@@ -11,7 +11,7 @@
 from sys import argv
 
 
-class Controller:
+class Favourite:
     def __init__(self, name):
         self.name = name
         if len(argv) == 1:
@@ -27,12 +27,13 @@ class Controller:
             self.write_file(argv[i])
 
     def write_file(self, argument):
-        with open(self.name, "r+") as file:
-            for line in file:
-                if argument in line:
-                    break
-            else:
-                file.write(argument + "\n")
+        fw = open(self.name, "r")
+        lines = fw.readlines()
+        fw.close()
+        fw = open(self.name, "a")
+        if argument + "\n" not in lines:
+            fw.write(argument + "\n")
+        fw.close()
 
 
-controller = Controller("favourites.txt")
+controller = Favourite("favourites.txt")
