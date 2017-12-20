@@ -33,6 +33,7 @@ class Monsters:
         self.y = 0
         line = read_file()
         self.coord_list = []
+        self.boss_list = []
         i = 0
         if self.monster_type == "Skeleton":
             self.hp = 2 * self.d6
@@ -44,24 +45,32 @@ class Monsters:
             self.dp = self.d6
             self.sp = self.d6
             self.max_hp = 2 * self.d6
-        while i < 4:
+        while i < 3:
             self.x = random.randint(0, 720)//72
             self.y = random.randint(0, 792)//72
             if [self.x, self.y] not in self.coord_list and line[self.y][self.x] == "0" and self.x + self.y != 0:
                 self.coord_list.append([self.x, self.y])
                 i += 1
+        i = 0
+        while i < 1:
+            self.x = random.randint(0, 720)//72
+            self.y = random.randint(0, 792)//72
+            if [self.x, self.y] not in self.coord_list and line[self.y][self.x] == "0" and self.x + self.y != 0:
+                self.boss_list.append([self.x, self.y])
+                i += 1
         print(self.coord_list)
+        print(self.boss_list)
 
     def draw_skeleton(self):
-        for i in range(len(self.coord_list)-1):
+        for i in range(len(self.coord_list)):
             x = self.coord_list[i][0]
             y = self.coord_list[i][1]
             self.canvas.create_image(x*72 + 36, y*72 + 36, image=self.skeleton)
 
     def draw_boss(self):
-        if len(self.coord_list) > 0:
-            x = self.coord_list[len(self.coord_list)-1][0]
-            y = self.coord_list[len(self.coord_list)-1][1]
+        if len(self.boss_list) > 0:
+            x = self.boss_list[0][0]
+            y = self.boss_list[0][1]
             self.canvas.create_image(x * 72 + 36, y * 72 + 36, image=self.boss)
 
 
@@ -142,7 +151,7 @@ def on_key_press(e):
         hero1.draw_right()
         monsters1.draw_skeleton()
         monsters1.draw_boss()
-    if [hero1.herox//72, hero1.heroy//72] in monsters1.coord_list:
+    if e.keycode == 32 and ([hero1.herox//72, hero1.heroy//72] in monsters1.coord_list or [hero1.herox//72, hero1.heroy//72] in monsters1.boss_list):
         fight(hero1.herox//72, hero1.heroy//72)
         print(monsters1.coord_list)
 
@@ -159,7 +168,17 @@ def fight(x, y):
                 monsters1.hp = monsters1.hp - hero1.sp
             if hero1.hp <= 0:
                 print("hero lost")
-        if len(monsters1.coord_list) == 0:
+        for i in range(len(monsters1.boss_list)):
+            if [x, y] == monsters1.boss_list[i]:
+                monsters1.boss_list.pop(i)
+        while hero1.hp > 0 and monsters1.hp > 0:
+            if monsters1.d6 * 2 + monsters1.sp > hero1.dp:
+                hero1.hp = hero1.hp - 2 * monsters1.sp
+            if hero1.d6 * 2 + hero1.sp > monsters1.dp:
+                monsters1.hp = monsters1.hp - hero1.sp
+            if hero1.hp <= 0:
+                print("hero lost")
+        if len(monsters1.coord_list) == 0 and len(monsters1.boss_list) == 0:
             print("hero won")
 
     except IndexError:
@@ -169,4 +188,5 @@ def fight(x, y):
 canvas.bind("<KeyPress>", on_key_press)
 canvas.pack()
 canvas.focus_set()
+root.update_idletasks()
 root.mainloop()
