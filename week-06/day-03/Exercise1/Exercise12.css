@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.item {
+  height: 190px;
+  float: left;
+}
+
+.green {
+  width: 25%;
+  background-color: rgb(81, 212, 0);
+}
+
+.yellow {
+  width: 50%;
+  background-color: rgb(255, 214, 42);
+}
+
+.purple {
+  width: 25%;
+  background-color: rgb(176, 42, 255);
+}

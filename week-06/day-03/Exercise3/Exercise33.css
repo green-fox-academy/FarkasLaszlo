@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  height: 284px;
+  width: 100%;
+  background-color: rgb(255, 214, 42);
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.item {
+  margin-right: 5px;
+  width: 108px;
+  height: 108px;
+  background-color: rgb(176, 42, 255);
+  z-index: 5;
+  list-style: none;
+}

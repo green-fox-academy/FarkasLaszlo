@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 750px;
+  height: 280px;
+  background-color: rgb(255, 214, 42);
+}
+
+.purple {
+  background-color: rgb(176, 42, 255);
+  width: 108px;
+  height: 108px;
+  position: relative;
+  left: 321px;
+  top: 86px;
+
+}

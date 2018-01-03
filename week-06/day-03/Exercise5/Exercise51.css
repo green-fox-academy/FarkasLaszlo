@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+header {
+  width: 540px;
+  height: 100px;
+  background-color: aqua;
+}
+
+.main {
+  height: 500px;
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.side {
+  width: 100px;
+  height: 500px;
+}
+
+.left {
+  background-color: rgb(254, 165, 0);
+}
+
+.right {
+  background-color: rgb(176, 42, 255);
+}
+
+main {
+  width: 300px;
+  height: 500px;
+  background-color: red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+footer {
+  width: 540px;
+  height: 100px;
+  background-color: blue;
+}
+
+.blackbox {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  margin: 20px;
+
+}

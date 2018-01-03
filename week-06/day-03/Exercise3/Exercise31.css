@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  height: 284px;
+  width: 100%;
+  background-color: rgb(255, 214, 42);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.item {
+  margin-right: 5px;
+  width: 108px;
+  height: 108px;
+  background-color: rgb(176, 42, 255);
+  z-index: 5;
+  list-style: none;
+}
