@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(49, 56, 65);
+}
+
+i, button {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  padding-top: 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  font-size: 50px;
+  margin-left: 25%;
+}
+
+.fa-check:hover {
+  color: rgb(56, 186, 125);
+}
+
+.trash:hover {
+  color: rgb(243, 69, 65);
+}
+
+span {
+  color: rgb(49, 56, 65);
+}
+
+label {
+  margin: 20px 0;
+  display: flex;
+}
+
+label:hover > span {
+  width: 200px;
+  height: 100px;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  padding:30px 0 10px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+label:hover > span.delete {
+  background-color: rgb(243, 69, 65);
+}
+
+label:hover > span.sure {
+  background-color: rgb(56, 186, 125);
+}
