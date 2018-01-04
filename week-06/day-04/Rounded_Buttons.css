@@ -1,0 +1,61 @@
+body {
+  background-color: rgb(47, 48, 96);
+}
+
+div {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="button"] {
+  color: rgba(198, 216, 255, 0.85);
+  font-size: 16px;
+  width: 150px;
+  height: 50px;
+  border: 1px grey;
+  border-radius: 5px;
+}
+
+input[value="Blue"] {
+  background-color: rgb(61, 90, 153);
+  box-shadow: 0px 5px 2px 0px rgba(54,81, 138, 1);
+}
+
+input[value="Green"] {
+  background-color: rgb(24, 165, 81);
+  box-shadow: 0px 5px 2px 0px rgba(19, 133, 64, 1);
+}
+
+input[value="Red"] {
+  background-color: rgb(211, 61, 48);
+  box-shadow: 0px 5px 2px 0px rgba(169, 48, 39, 1);
+}
+
+input[value="Blue"]:hover {
+  background-color: rgb(66, 99, 168);
+}
+
+input[value="Green"]:hover {
+  background-color: rgb(27, 181, 89);
+}
+
+input[value="Red"]:hover {
+  background-color: rgb(232, 67, 55);
+}
+
+input[value="Blue"]:active {
+  background-color: rgb(53, 81, 138);
+}
+
+input[value="Green"]:active {
+  background-color: rgb(22, 149, 72);
+}
+
+input[value="Red"]:active {
+  background-color: rgb(190, 54, 43);
+}
