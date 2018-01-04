@@ -8,7 +8,7 @@ body {
   background-color: rgb(49, 56, 65);
 }
 
-i, button {
+button {
   width: 100px;
   height: 100px;
   background-color: black;
@@ -36,6 +36,13 @@ i, button {
 
 span {
   color: rgb(49, 56, 65);
+  transition:5s;
+  width: 0;
+  height: 100px;
+  font-size: 15px;
+  text-align: center;
+  padding:30px 0 10px 0;
+  border-radius: 0 5px 5px 0;
 }
 
 label {
@@ -45,12 +52,8 @@ label {
 
 label:hover > span {
   width: 200px;
-  height: 100px;
   color: white;
   font-size: 25px;
-  text-align: center;
-  padding:30px 0 10px 0;
-  border-radius: 0 5px 5px 0;
 }
 
 label:hover > span.delete {
