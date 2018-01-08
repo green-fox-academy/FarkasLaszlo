@@ -15,3 +15,32 @@ var accounts = [
 //  - amount of cash to transfer
 //
 // Log "404 - account not found" if any of the account numbers don't exist to the console.
+
+function balance(bank_accounts) {
+	for(var i = 0; i < bank_accounts.length;i++) {
+		console.log(bank_accounts[i].client_name + " " + bank_accounts[i].balance);
+	}
+}
+
+balance(accounts)
+
+function transfer(from_account, to_account, amount, bank_accounts){
+
+	if((from_account || to_account) != (11234543 || 43546731 || 23456311)) {
+		console.log("404 - account not found");
+	}
+
+	for(var i = 0; i < bank_accounts.length;i++) {
+		if(from_account == bank_accounts[i].account_number) {
+			bank_accounts[i].balance -= amount;
+			console.log("Money has been sent from this account: " + bank_accounts[i].client_name + " " + bank_accounts[i].balance);
+		}
+		if(to_account == bank_accounts[i].account_number) {
+			bank_accounts[i].balance += amount;
+			console.log("Money has been sent to this account: " + bank_accounts[i].client_name + " " + bank_accounts[i].balance);
+		}
+	}
+}
+
+
+transfer(11234543, 43546731, 100000000, accounts);

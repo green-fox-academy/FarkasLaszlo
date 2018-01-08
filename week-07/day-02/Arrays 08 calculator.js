@@ -16,7 +16,33 @@
 // If number of arguments are not correct, print some nice errors
 // Else print the result
 // Say goodbye
+var command = [];
 
-var args = process.argv.splice(2); // Just a helper for you to get started
+process.stdin.on('readable', function() {
+  var sum = 0;
+  var d = process.stdin.read();
+  if(d) {
+    command = d.split(" ");
+    }
+  if(command[0] == "+") {
+    sum = Number(command[1]) + Number(command[2]);
+    console.log(sum);
+  }else if(command[0] == "-") {
+    sum = Number(command[1]) - Number(command[2]);
+    console.log(sum);
+  }else if(command[0] == "*") {
+    sum = Number(command[1]) * Number(command[2]);
+    console.log(sum);
+  }else if(command[0] == "/") {
+    sum = Number(command[1]) / Number(command[2]);
+    console.log(sum);
+  }else if(command[0] == "%") {
+    sum = Number(command[1]) % Number(command[2]);
+    console.log(sum);
+  }
+}
+)
 
-console.log('Input params are', args);
+process.stdin.setEncoding("utf8");
+
+console.log(command);
