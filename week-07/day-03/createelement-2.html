@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: CreateElement</title>
+</head>
+<body>
+  <h1>The candyshop has:</h1>
+  <ul class="candyshop">
+    <li>1 Mega juicy candy</li>
+  </ul>
+
+  <script>
+    var ul_list = document.querySelector("ul.candyshop");
+    ul_list.removeChild(document.querySelector("li"));
+    for(var i = 0; i < 16;i++) {
+      var new_li = document.createElement("li");
+      new_li.textContent = "Empty box #" + (i + 1);
+      ul_list.appendChild(new_li);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+<body>
+  <ul>
+    <li>placeholder</li>
+    <li>placeholder</li>
+    <li>placeholder</li>
+    <li>placeholder</li>
+  </ul>
+
+  <script>
+  var items = ["apple", "banana", "cat", "dog"];
+  var lis = document.querySelectorAll("li");
+  for(var i = 0;i < items.length;i++) {
+    lis[i].textContent = items[i];
+  }
+  document.querySelector("ul").style.backgroundColor = "limegreen";
+  </script>
+
+</body>
+</html>

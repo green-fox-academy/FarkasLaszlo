@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+<body>
+  <h1>Original Content</h1>
+  <p>Some more text</p>
+  <p class="other">Even more text</p>
+  <p class="result">Here comes something new</p>
+
+  <script>
+    alert(document.querySelector("h1").textContent);
+    console.log(document.querySelector("p").textContent);
+    alert(document.querySelector(".other").textContent);
+    document.querySelector("h1").textContent = "New content";
+    document.querySelector(".result").textContent = document.querySelector("p").textContent;
+  </script>
+</body>
+</html>

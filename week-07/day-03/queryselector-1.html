@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: QuerySelector</title>
+</head>
+<body>
+  <section class="container">
+    <div id="b325" class="asteroid">The King</div>
+    <div class="asteroid b326">The Conceited Man</div>
+  </section>
+  <p class="asteroid big">The Businessman</p>
+  <div class="asteroid b329 big">The Lamplighter</div>
+
+  <script>
+    var king = document.getElementById('b325');
+    console.log(king);
+    var conceited = document.querySelector(".b326");
+    alert(conceited);
+    var businessLamp = document.querySelectorAll(".big");
+    for (var i = 0; i < businessLamp.length; i++) {
+      console.log(businessLamp[i]);
+    }
+    var conceitedKing = document.querySelectorAll("section > div");
+    for (var i = 0; i < conceitedKing.length; i++) {
+      alert(conceitedKing[i]);
+    }
+    var noBusiness = document.querySelectorAll("div");
+    for (var i = 0; i < noBusiness.length; i++) {
+      console.log(noBusiness[i]);
+    }
+    var allBizniss = document.querySelector("p");
+    console.log(allBizniss);
+
+  </script>
+</body>
+</html>
