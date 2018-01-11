@@ -8,12 +8,11 @@
   <h1>No last pressed key</h1>
 
   <script>
-  
-  document.onkeypress = function(evt) {
-    evt = window.event;
-    var charCode = evt.keyCode;
-    var charStr = String.fromCharCode(charCode);
-    document.querySelector("h1").textContent = "Last pressed key code is:" + charStr;
+  document.onkeypress = function() {
+    var press = window.event;
+    var charCode = press.keyCode;
+    //charCode = String.fromCharCode(charCode); // You can display the key.
+    document.querySelector("h1").textContent = "Last pressed key code is:" + charCode;
     }
   </script>
 
