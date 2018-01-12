@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Page Title</title>
+    <title>Photo Gallery</title>
     <link rel="stylesheet" href="Image_slider.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
-  <body onclick="GetActive ();">
+  <body >
     <div class="container">
       <div class="mainarea">
         <div class="left side">
@@ -15,7 +15,7 @@
 
         </div>
         <main class="picture">
-            <img src="asian_tiger.jpg">
+            <img src="asian_tiger.jpg" class="img0">
             <h1>Ghost tiger</h1>
             <p>It's made of air, so it won't bite.</p>
         </main>
@@ -24,10 +24,13 @@
 
         </div>
       </div>
-      <footer>
+      <footer onclick="GetActive ();">
       </footer>
     </div>
-
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>  
     <script src ="slider.js"></script>
   </body>
 </html>

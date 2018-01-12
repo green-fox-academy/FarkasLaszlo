@@ -19,7 +19,7 @@
 var command = [];
 
 process.stdin.on('readable', function() {
-  var sum = 0;
+  var sum;
   var d = process.stdin.read();
   if(d) {
     command = d.split(" ");
@@ -40,6 +40,9 @@ process.stdin.on('readable', function() {
     sum = Number(command[1]) % Number(command[2]);
     console.log(sum);
   }
+  if(sum != undefined){
+  throw new Error("Goodbye!");
+}
 }
 )
 
