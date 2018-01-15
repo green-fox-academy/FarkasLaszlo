@@ -17,7 +17,7 @@ class ElevatorController {
     this.buttonup.addEventListener("click", moveupp);
     this.buttonremove.addEventListener("click", addp);
     this.buttonadd.addEventListener("click", removep);
-    document.querySelector(".elevator > div:first-child").style.backgroundColor = "green";
+    document.querySelector(".elevator > div:last-child").style.backgroundColor = "green";
   }
 
 
@@ -27,7 +27,7 @@ class ElevatorModel {
   constructor(maximum_floor, maximum_people) {
     this.maximum_floor = maximum_floor;
     this.maximum_people = maximum_people;
-    this.elevator_position = 0;
+    this.elevator_position = maximum_floor - 1;
     this.people = 0;
   }
 
