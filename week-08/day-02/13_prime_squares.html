@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prime squares</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        section {
+            display: grid;
+            grid-auto-rows: 50px;
+            grid-template-columns: repeat(10, 1fr);
+            width: 1000px;
+            margin: 0 auto;
+        }
+        section div {
+            box-shadow: 0px 0px 10px #666 inset;
+            text-align: center;
+            line-height: 50px;
+        }
+        .not-prime {
+            background: tomato;
+        }
+        .prime {
+            background: limegreen;
+        }
+    </style>
+</head>
+<body>
+    <section>
+    </section>
+
+    <script>
+      var sect = document.querySelector("section");
+      for(var y = 0; y < 100;y++) {
+        var div = document.createElement("div");
+        div.textContent = y;
+        sect.appendChild(div);
+      }
+      function Primevalidator(a) {
+        for(var z = 2; z <= a ** 0.5;z++) {
+          if(a % z == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      
+      var divs = document.querySelectorAll("div");
+      function Decide(x) {
+      if(x < divs.length) {
+        var prime = true;
+          prime = Primevalidator(x);        
+          if(prime) {
+          divs[x].setAttribute("class", "prime");
+        }else {
+          divs[x].setAttribute("class", "not-prime");
+        }  
+      }
+      }
+
+      var i = 0;
+      myInterval = setInterval(function() {
+        Decide(i);
+        i++;
+        console.log(i);
+        if(i == divs.length) {
+          stopInterval();
+        }
+
+      }, 100);      
+      function stopInterval() {
+        clearInterval(myInterval);
+    }
+
+        // 1: generate 100 divs to the <section> element and add index numbers to it as the element's textContent
+        // 2: Create a function that adds a 'not-prime' class to a div if it's not a prime and 'prime' if it is
+        // 3: Create a timer that keeps calling the prime validatior function until it reaches the end of elements
+        //  - the timer should fire every 100ms
+        //  - the timer should stop when there are no more elements left to be colored
+    </script>
+</body>
+</html>

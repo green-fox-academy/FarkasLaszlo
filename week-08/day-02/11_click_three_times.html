@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Click Three Times</title>
+</head>
+<body>
+  <button>Click</button>
+  <script>
+    function stopInterval() {
+      if(document.querySelector("p") != null) {
+        clearInterval(myInterval);
+      }
+    }
+    var clicked = 0;
+    var button = document.querySelector("button");
+    console.log(document.querySelector("p"));
+    button.addEventListener("click", function() {
+      clicked++;
+      console.log(clicked);
+    })
+    myInterval = setInterval(function() {
+      if(clicked >= 3) {
+      var body = document.querySelector("body");
+      var par = document.createElement("p");
+      par.textContent = "5 seconds ellapsed and clicked 3 times";
+      body.appendChild(par);
+      stopInterval();
+    }
+    }, 5000);
+
+
+  </script>
+</body>
+</html>
