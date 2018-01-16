@@ -34,11 +34,10 @@ var data1;
 data1 = data.split("\n");
 converted_data = [];
 var i = 0;
-while(i < data1.length) {
-  var currentline = data1[i].split(";");
+data1.map(function(i) {
+  var currentline = i.split(";");
   converted_data.push({name: currentline[0], id: currentline[1], color_code: currentline[2]});
-  i++;
-}
+})
 
 //console.log(converted_data);
 var unique = [];
