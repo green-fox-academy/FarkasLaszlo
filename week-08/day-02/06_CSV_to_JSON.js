@@ -33,7 +33,6 @@ Loris tardigratus;725;Orange`;
 var data1;
 data1 = data.split("\n");
 converted_data = [];
-var i = 0;
 data1.map(function(i) {
   var currentline = i.split(";");
   converted_data.push({name: currentline[0], id: currentline[1], color_code: currentline[2]});
