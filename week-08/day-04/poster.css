@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(220,220,220);
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 32vh;
+  background-image: url("galaxy.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 50px;
+  letter-spacing: 6vw;
+}
+
+.container {
+  display: grid;
+  height: 58vh;
+  grid-template-columns: 66.666% 33.333%;
+  grid-template-rows: 15% auto 35%;
+  margin: 2%;
+  grid-gap: 2%;
+  justify-content: center;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 2;
+  background-color: rgb(76,163,233);
+  border-radius: 5px;
+}
+
+main {
+  grid-column: 1;
+  grid-row: 1/4;
+}
+
+a, input.submit {
+  color: white;
+  text-decoration-line: none;
+}
+
+article {
+  padding: 5%;
+  background-color: rgb(240,240,240);
+}
+
+article > p:nth-child(1) {
+  font-weight: bold;
+  display: inline-block;
+}
+
+article > p:nth-child(2) {
+  color: blue;
+  display: inline-block;
+}
+
+article > p:nth-child(3) {
+  text-align: center;
+  padding: 5%;
+}
+
+article > ul {
+  padding: 0 0 0 5%;
+}
+
+main {
+  display: grid;
+  overflow: auto;
+  grid-template-columns: 100%;
+  grid-template-rows: 150px;
+  grid-gap: 5%;
+}
+
+.poster {
+  grid-row: 1/4;
+  background-color: rgb(255,255,255);
+  padding: 1%;
+}
+
+.poster > input {
+  display: block;
+  width: 100%;
+  padding: 1%;
+  background-color: rgb(220,220,220);
+}
+
+.poster > input:focus {
+  outline: none;
+}
+
+.poster > span:nth-child(1) {
+  color: red;
+  display: inline-block;
+}
+
+.poster > textarea {
+  display: block;
+  margin: 0 0 5% 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgb(220,220,220);
+}
+
+.poster > textarea:focus {
+  outline: none;
+}
+
+input.submit {
+  width: 33%;
+  height: 5%;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover, input.submit:hover {
+  cursor: pointer;
+}
+
+footer.container {
+  height: 38vh;
+  grid-template-columns: 50% 50%;
+}
+
+post {
+  height: 135px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: auto;
+  background-color: rgb(240,240,240);
+
+}
+mainpost {
+  display: grid;
+  grid-template-columns: 40% 20% 20%;
+  grid-template-rows: 50% 25% 25%;
+  grid-gap: 1%;
+}
+
+mainpost > posttitle {
+  grid-column: 1/4;
+  grid-row: 1;
+  overflow: auto;
+  padding-top: 1%;
+}
+
+mainpost > comments {
+  grid-row: 3;
+  overflow: auto;
+}
+
+mainpost > a {
+  color:grey;
+  grid-row: 3;
+}
+
+submitted {
+  grid-column: 1/3;
+}
+
+.voter {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  grid-column: 1;
+  align-items: center;
+}
+
+.voter > button {
+  width: 29px;
+  height: 25px;
+  background-size: 25px;
+}
+
+.upvote:active {
+  background-image: url("upvote.png"), linear-gradient(rgb(21, 235, 21), blue);
+}
+
+.downvote:active {
+  background-image: url("downvote.png"), linear-gradient(red, blue);
+}
+.voter > p {
+  text-align: center;
+}
+
+.upvote {
+  background-image: url("upvote.png");
+}
+
+.downvote {
+  background-image: url("downvote.png")
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Submit Post</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="poster.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+</head>
+<body>
+  <header>
+    <p class="title">SPACE</p>
+  </header>
+  <footer class="container">
+    <div class="poster">
+      <span title="You need to fill it">*</span>
+      <span>title</span>
+      <textarea></textarea>
+      <span>url</span>
+      <input type="text">
+    </div>
+  </footer>
+    <input class="submit" type="button"  value="submit" />
+    <script>
+    var button = document.querySelector("body > input");
+    button.addEventListener("click", grabText);
+    function grabText() {
+      var posttitle = document.querySelector("textarea");
+      var text = posttitle.value;
+      var sendurl = document.querySelector("div > input");
+      var urltext = sendurl.value;
+      var data = {"title": text, "url": urltext, "score": 40};
+      $.ajax({
+        url: "http://secure-reddit.herokuapp.com/simple/posts",
+        type: 'POST',
+        contentType:'application/json',
+        data: JSON.stringify(data),
+        dataType:'json',
+        success: function(data){
+          alert(data);
+            },
+        error: function(xhr, ajaxOptions, thrownError) {
+          if (xhr.status == 200) {
+              alert(ajaxOptions);
+          }
+          else {
+              alert(xhr.status);
+              alert(thrownError);
+          }
+          }
+        });
+    }
+    </script>
+</body>
+</html>

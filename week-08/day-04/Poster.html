@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Poster</title>
+  <link rel="stylesheet" type="text/css" href="poster.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+</head>
+<body>
+  <header>
+    <p class="title">SPACE</p>
+  </header>
+  <div class="container">
+  <main onclick="getActive();">
+  </main>
+  <div class="submit">
+  <a href="Submit.html">SUBMIT A NEW POST</a>
+  </div>
+  <article>
+    <p>ABOUT </p>
+    <p>r/space</p>
+    <p>Share & discuss informative content on:</p>
+    <ul>
+      <li>Astrophysics</li>
+      <li>Cosmology</li>
+      <li>Space Exploration</li>
+      <li>Planetary Science</li>
+      <li>Astrobiology</li>
+    </ul>
+  </article>
+  </div>
+  <script>
+    xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://secure-reddit.herokuapp.com/simple/posts");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.send();
+    xhr.onreadystatechange = function() {
+    console.log(xhr.readyState);
+    if(xhr.readyState == 4) {
+    console.log(xhr);
+    json = JSON.parse(xhr.responseText);
+    console.log(json.posts);
+    var main = document.querySelector("main");
+    for(var i = 0; i < json.posts.length;i++) {
+      var post = document.createElement("post");
+      var postdiv = document.createElement("div");
+      var upvote = document.createElement("button");
+      var downvote = document.createElement("button");
+      var votes = document.createElement("p");
+      postdiv.setAttribute("class", "voter");
+      upvote.setAttribute("class", "upvote");
+      upvote.setAttribute("id", "up" + i);
+      downvote.setAttribute("class", "downvote");
+      downvote.setAttribute("id", "down" + i);
+      votes.textContent = json.posts[i].score;
+      postdiv.appendChild(upvote);
+      postdiv.appendChild(votes);
+      postdiv.appendChild(downvote);
+      post.appendChild(postdiv);
+      var mainpost = document.createElement("mainpost");
+      var title = document.createElement("posttitle");
+      title.textContent = json.posts[i].title;
+      var submitted = document.createElement("submitted");
+      submitted.innerHTML = countTimestamp(json.posts[i].timestamp, json.posts[i].owner);
+      var comment = document.createElement("comments");
+      comment.textContent = "No comments provided by Levi";
+      var modify = document.createElement("a");
+      var remove = document.createElement("a");
+      modify.setAttribute("id", "modify" + i);
+      remove.setAttribute("id", "remove" + i);
+      modify.textContent = "Modify";
+      remove.textContent = "Remove";
+      mainpost.appendChild(title);
+      mainpost.appendChild(submitted);
+      mainpost.appendChild(comment);
+      mainpost.appendChild(modify);
+      mainpost.appendChild(remove);
+      post.appendChild(mainpost);
+      main.appendChild(post);
+    }
+  }
+  }
+
+    function countTimestamp(time, writer) {
+      var person = "";
+      if( writer == null) {
+      person = "anonymous";
+      }else {
+      person = writer;
+      }
+      text = "";
+      if(time < 3600 * 1000) {
+        return text = "submitted " + Math.floor(time/1000) + " seconds ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+      }else if(time < 3600 * 24 * 1000) {
+        return text = "submitted " + Math.floor(time/3600/1000) + " hours ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+      }else if(time < 3600 * 24 * 365 * 1000) {
+        return text = "submitted " + Math.floor(time/3600/24/1000) + " days ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+      }else {
+        return text = "submitted " + Math.floor(time/3600/24/365/1000) + " years ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+      }
+    }
+
+
+function getActive() {
+  var upvote_list = document.querySelectorAll(".upvote");
+  var downvote_list = document.querySelectorAll(".downvote");
+  for(var i = 0;i < upvote_list.length;i++) {
+    if(document.activeElement.id == upvote_list[i].id) {
+    var upvote = document.querySelectorAll("post > div > p");
+    upvote[i].textContent = Number(upvote[i].textContent) + 1;
+    json.posts[i].score += 1;
+    }
+    if(document.activeElement.id == downvote_list[i].id) {
+    var downvote = document.querySelectorAll("post > div > p");
+    downvote[i].textContent = Number(downvote[i].textContent) - 1;
+    json.posts[i].score -= 1;
+    }
+  }
+  }
+
+
+  </script>
+  
+</body>
+</html>
