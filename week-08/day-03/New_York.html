@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>New York Times API</title>
+</head>
+<body>
+  <div></div>
+<script>
+   var xhr = new XMLHttpRequest();
+   xhr.open("GET", "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Apollo11&api-key=a17afd4d3a8847a787b4f8d0f8d076a3&sort=oldest");
+   xhr.send();
+   var json = [];
+   xhr.onreadystatechange = function() {
+   console.log(xhr.readyState);
+ }
+
+  myinterval = setInterval(function() {
+    if(xhr.readyState == 4) {
+    json = JSON.parse(xhr.responseText);
+    console.log(json.response.docs);
+    div = document.querySelector("body > div");
+    for(var i = 0; i< json.response.docs.length;i++) {
+      var headline = document.createElement("h1");
+      var public_date = document.createElement("p");
+      var paragraph = document.createElement("p");
+      var link = document.createElement("a");
+      headline.textContent = json.response.docs[i].headline.main;
+      public_date.textContent = json.response.docs[i].pub_date;
+      paragraph.textContent = json.response.docs[i].snippet;
+      link.textContent = json.response.docs[i].headline.main;
+      link.setAttribute("href", json.response.docs[i].web_url);
+      div.appendChild(headline);
+      div.appendChild(paragraph);
+      div.appendChild(public_date);
+      div.appendChild(link);
+    }
+  }
+    stopinterval();
+
+}, 1000)
+
+function stopinterval() {
+  clearInterval(myinterval);
+}
+    </script>
+  
+</body>
+</html>

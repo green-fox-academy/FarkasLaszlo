@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Get Position</title>
+
+</head>
+<body>
+  <label>Position will appear here</label>
+  <input type="text">
+  <button>Get Position</button>
+  <iframe
+  width="700"
+  height="550"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyA3oYGT2P99PaL33YqT9xK2CaUu5sP4Yqs&zoom=12&maptype=satellite&center=-33.8569,151.2152" allowfullscreen>
+</iframe>
+  <script>
+    function request(text) {
+      console.log(text);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", text);
+    xhr.setRequestHeader("X-Mashape-Key", "VVt2gzyZzwmshQ7VboRm4WMauMAhp1bR6HbjsnkQEWLQVix2fK");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.send();
+    var json = [];
+    xhr.onreadystatechange = function() {
+    console.log(xhr.readyState);
+    if(xhr.readyState == 4) {
+    json = JSON.parse(xhr.response);
+    console.log(json.Results[0]);
+    document.querySelector("label").textContent = json.Results[0].lat + " " + json.Results[0].lon;
+    iframe = document.querySelector("iframe");
+    iframe.setAttribute("src", "https://www.google.com/maps/embed/v1/view?key=AIzaSyA3oYGT2P99PaL33YqT9xK2CaUu5sP4Yqs&zoom=12&maptype=satellite&center=" + json.Results[0].lat + "," + json.Results[0].lon);
+    }
+    }
+  }
+
+const link = "https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php?location=";
+var button = document.querySelector("button");
+button.addEventListener("click", grabText);
+  function grabText() {
+    var city = document.querySelector("input");
+    var text = link + city.value;
+    return request(text);
+
+  }
+    </script>
+</body>
+</html>
