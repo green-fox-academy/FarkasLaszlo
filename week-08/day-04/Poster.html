@@ -28,11 +28,12 @@
       <li>Planetary Science</li>
       <li>Astrobiology</li>
     </ul>
+    <button onclick="deleteAll();" class="deleter">Delete all garbage</button>
   </article>
   </div>
   <script>
     xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://secure-reddit.herokuapp.com/simple/posts");
+    xhr.open("GET", "https://time-radish.glitch.me/posts");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.send();
     xhr.onreadystatechange = function() {
@@ -50,9 +51,11 @@
       var votes = document.createElement("p");
       postdiv.setAttribute("class", "voter");
       upvote.setAttribute("class", "upvote");
-      upvote.setAttribute("id", "up" + i);
+      upvote.setAttribute("id", json.posts[i].id);
       downvote.setAttribute("class", "downvote");
-      downvote.setAttribute("id", "down" + i);
+      downvote.setAttribute("id", json.posts[i].id);
+      votes.setAttribute("class", "a" + json.posts[i].id);
+      post.setAttribute("class", "b" + json.posts[i].id);
       votes.textContent = json.posts[i].score;
       postdiv.appendChild(upvote);
       postdiv.appendChild(votes);
@@ -60,20 +63,19 @@
       post.appendChild(postdiv);
       var mainpost = document.createElement("mainpost");
       var title = document.createElement("posttitle");
-      title.textContent = json.posts[i].title;
+      title.innerHTML = json.posts[i].title + " " + "<span style='color:grey;'>(" + json.posts[i].url +")<span>";
       var submitted = document.createElement("submitted");
       submitted.innerHTML = countTimestamp(json.posts[i].timestamp, json.posts[i].owner);
-      var comment = document.createElement("comments");
-      comment.textContent = "No comments provided by Levi";
-      var modify = document.createElement("a");
-      var remove = document.createElement("a");
-      modify.setAttribute("id", "modify" + i);
-      remove.setAttribute("id", "remove" + i);
+      var modify = document.createElement("button");
+      var remove = document.createElement("button");
+      modify.setAttribute("class", "modify");
+      modify.setAttribute("id",json.posts[i].id);
+      remove.setAttribute("class", "remove");
+      remove.setAttribute("id",json.posts[i].id);
       modify.textContent = "Modify";
-      remove.textContent = "Remove";
+      remove.textContent = "Remove this post";
       mainpost.appendChild(title);
       mainpost.appendChild(submitted);
-      mainpost.appendChild(comment);
       mainpost.appendChild(modify);
       mainpost.appendChild(remove);
       post.appendChild(mainpost);
@@ -101,26 +103,79 @@
       }
     }
 
-
 function getActive() {
-  var upvote_list = document.querySelectorAll(".upvote");
-  var downvote_list = document.querySelectorAll(".downvote");
-  for(var i = 0;i < upvote_list.length;i++) {
-    if(document.activeElement.id == upvote_list[i].id) {
-    var upvote = document.querySelectorAll("post > div > p");
-    upvote[i].textContent = Number(upvote[i].textContent) + 1;
-    json.posts[i].score += 1;
-    }
-    if(document.activeElement.id == downvote_list[i].id) {
-    var downvote = document.querySelectorAll("post > div > p");
-    downvote[i].textContent = Number(downvote[i].textContent) - 1;
-    json.posts[i].score -= 1;
+    voting = new XMLHttpRequest();
+  console.log(document.activeElement.id + "   "+ document.activeElement.className);
+  if(document.activeElement.className == "upvote") {
+    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/upvote");
+    voting.setRequestHeader("Accept", "application/json");
+    voting.send();
+    voting.onreadystatechange = function() {
+    if(voting.readyState == 4) {
+    json2 = JSON.parse(voting.responseText);
+    var par = document.querySelector(".a" + json2.id);
+    par.textContent = json2.score;
+      }
     }
   }
+   if(document.activeElement.className == "downvote") {
+    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/downvote");
+    voting.setRequestHeader("Accept", "application/json");
+    voting.send();
+    voting.onreadystatechange = function() {
+    if(voting.readyState == 4) {
+    json2 = JSON.parse(voting.responseText);
+    var par = document.querySelector(".a" + json2.id);
+    par.textContent = json2.score;
+      }
+    }
+   }
+   if(document.activeElement.className == "remove") {
+    voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.id);
+    voting.setRequestHeader("Accept", "application/json");
+    voting.send();
+    console.log(voting);
+    voting.onreadystatechange = function() {
+    if(voting.readyState == 4) {
+    json2 = JSON.parse(voting.responseText);
+    var main = document.querySelector("main");
+    var post = document.querySelector(".b" + json2.id);
+    main.removeChild(post);
+    }
+  }
+   }
   }
 
-
+  function deleteAll() {
+      var i = 0;
+    var timer = setInterval(function() {
+      i = deleter(i);
+      i++;
+      if(i == json.posts.length) {
+        var postedposts = document.querySelectorAll("post");
+        var main = document.querySelector("main");
+        for(var x = 0;postedposts.length > x;x++){
+          main.removeChild(postedposts[x]);
+        }
+        stop();
+      }
+    }, 100);
+    function stop() {
+      clearInterval(timer);
+    }
+    function deleter(a) {
+      var deletepost = new XMLHttpRequest();
+      deletepost.open("DELETE", "https://time-radish.glitch.me/posts/" + json.posts[a].id);
+      deletepost.setRequestHeader("Accept", "application/json");
+      deletepost.send();
+      deletepost.onreadystatechange = function() {
+        if( deletepost.readyState == 4) {
+          return a;
+        }
+      }
+      return a;
+    }
+  }
   </script>
-  
 </body>
 </html>
