@@ -104,47 +104,31 @@
     }
 
 function getActive() {
-    voting = new XMLHttpRequest();
+  voting = new XMLHttpRequest();
   console.log(document.activeElement.id + "   " + document.activeElement.className);
   if(document.activeElement.className == "upvote") {
     voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/upvote");
-    voting.setRequestHeader("Accept", "application/json");
-    voting.send();
-    voting.onreadystatechange = function() {
-    if(voting.readyState == 4) {
-    json2 = JSON.parse(voting.responseText);
-    var par = document.querySelector(".a" + json2.id);
-    par.textContent = json2.score;
-      }
-    }
-  }
-   if(document.activeElement.className == "downvote") {
+  }else if(document.activeElement.className == "downvote") {
     voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/downvote");
-    voting.setRequestHeader("Accept", "application/json");
-    voting.send();
-    voting.onreadystatechange = function() {
-    if(voting.readyState == 4) {
+  }else if(document.activeElement.className == "remove") {
+    voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.id);
+  }
+  voting.setRequestHeader("Accept", "application/json");
+  voting.send();
+  voting.onreadystatechange = function() {
+  if(voting.readyState == 4) {
     json2 = JSON.parse(voting.responseText);
-    var par = document.querySelector(".a" + json2.id);
-    par.textContent = json2.score;
+    if(document.activeElement.className == "upvote" || document.activeElement.className == "downvote") {
+      var par = document.querySelector(".a" + json2.id);
+      par.textContent = json2.score;
+    }else if(document.activeElement.className == "remove") {
+      var main = document.querySelector("main");
+      var post = document.querySelector(".b" + json2.id);
+      main.removeChild(post);
       }
     }
-   }
-   if(document.activeElement.className == "remove") {
-    voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.id);
-    voting.setRequestHeader("Accept", "application/json");
-    voting.send();
-    console.log(voting);
-    voting.onreadystatechange = function() {
-    if(voting.readyState == 4) {
-    json2 = JSON.parse(voting.responseText);
-    var main = document.querySelector("main");
-    var post = document.querySelector(".b" + json2.id);
-    main.removeChild(post);
-    }
   }
-   }
-  }
+}
 
   function deleteAll() {
       var i = 0;
