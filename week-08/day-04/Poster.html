@@ -51,9 +51,9 @@
       var votes = document.createElement("p");
       postdiv.setAttribute("class", "voter");
       upvote.setAttribute("class", "upvote");
-      upvote.setAttribute("id", json.posts[i].id);
+      upvote.setAttribute("name", json.posts[i].id);
       downvote.setAttribute("class", "downvote");
-      downvote.setAttribute("id", json.posts[i].id);
+      downvote.setAttribute("name", json.posts[i].id);
       votes.setAttribute("class", "a" + json.posts[i].id);
       post.setAttribute("class", "b" + json.posts[i].id);
       votes.textContent = json.posts[i].score;
@@ -69,9 +69,9 @@
       var modify = document.createElement("button");
       var remove = document.createElement("button");
       modify.setAttribute("class", "modify");
-      modify.setAttribute("id",json.posts[i].id);
+      modify.setAttribute("name",json.posts[i].id);
       remove.setAttribute("class", "remove");
-      remove.setAttribute("id",json.posts[i].id);
+      remove.setAttribute("name",json.posts[i].id);
       modify.textContent = "Modify";
       remove.textContent = "Remove this post";
       mainpost.appendChild(title);
@@ -105,13 +105,13 @@
 
 function getActive() {
   voting = new XMLHttpRequest();
-  console.log(document.activeElement.id + "   " + document.activeElement.className);
+  console.log(document.activeElement.name + "   " + document.activeElement.className);
   if(document.activeElement.className == "upvote") {
-    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/upvote");
+    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.name + "/upvote");
   }else if(document.activeElement.className == "downvote") {
-    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/downvote");
+    voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.name + "/downvote");
   }else if(document.activeElement.className == "remove") {
-    voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.id);
+    voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.name);
   }
   voting.setRequestHeader("Accept", "application/json");
   voting.send();
