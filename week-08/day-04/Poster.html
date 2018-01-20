@@ -113,18 +113,20 @@ function getActive() {
   }else if(document.activeElement.className == "remove") {
     voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.name);
   }
-  voting.setRequestHeader("Accept", "application/json");
-  voting.send();
-  voting.onreadystatechange = function() {
-  if(voting.readyState == 4) {
-    json2 = JSON.parse(voting.responseText);
-    if(document.activeElement.className == "upvote" || document.activeElement.className == "downvote") {
-      var par = document.querySelector(".a" + json2.id);
-      par.textContent = json2.score;
-    }else if(document.activeElement.className == "remove") {
-      var main = document.querySelector("main");
-      var post = document.querySelector(".b" + json2.id);
-      main.removeChild(post);
+  if(voting.readyState >= 1) {
+    voting.setRequestHeader("Accept", "application/json");
+    voting.send();
+    voting.onreadystatechange = function() {
+    if(voting.readyState == 4) {
+      json2 = JSON.parse(voting.responseText);
+      if(document.activeElement.className == "upvote" || document.activeElement.className == "downvote") {
+        var par = document.querySelector(".a" + json2.id);
+        par.textContent = json2.score;
+      }else if(document.activeElement.className == "remove") {
+        var main = document.querySelector("main");
+        var post = document.querySelector(".b" + json2.id);
+        main.removeChild(post);
+        }
       }
     }
   }
