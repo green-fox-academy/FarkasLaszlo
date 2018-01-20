@@ -20,81 +20,45 @@
       <input type="text">
     </div>
   </footer>
-    <input class="submit" type="button" value="submit and go back" />
-    <input class="submit" id="submit2" type="button" value="just submit" />
-    <script>
-    var button = document.querySelector("body > input");
-    button.addEventListener("click", grabText);
-    function grabText() {
-      var posttitle = document.querySelector("textarea");
-      var text = posttitle.value;
-      if(text == "") {
-        alert("title field is empty");
-        throw "its empty";
-      }
-      var sendurl = document.querySelector("div > input");
-      var urltext = sendurl.value;
-      var data = {"title": text, "url": urltext, "score": 0};
-      $.ajax({
-        url: "https://time-radish.glitch.me/posts",
-        type: 'POST',
-        contentType:'application/json',
-        data: JSON.stringify(data),
-        headers: {
-        "Username":"Laci",
-        },
-        dataType:'json',
-        success: function(data){
-          console.log(data);
-          window.location.replace("Poster.html");
-            },
-        error: function(xhr, ajaxOptions, thrownError) {
-          if (xhr.status == 200) {
-            console.log(ajaxOptions);
-          }
-          else {
-            console.log(xhr.status);
-            console.log(thrownError);
-          }
-          }
-        });
+  <input class="submit" onclick="grabText();" type="button" value="submit and go back" />
+  <input class="submit" onclick="grabText();" type="button" value="just submit" />
+  <script>
+  function grabText() {
+    var posttitle = document.querySelector("textarea");
+    var text = posttitle.value;
+    if(text == "") {
+      alert("title field is empty");
+      throw "its empty";
     }
-    var button2 = document.querySelector("#submit2");
-    button2.addEventListener("click", submitpost);
-    function submitpost() {
-      var posttitle = document.querySelector("textarea");
-      var text = posttitle.value;
-      if(text == "") {
-        alert("title field is empty");
-        throw "its empty";
+    var sendurl = document.querySelector("div > input");
+    var urltext = sendurl.value;
+    var data = {"title": text, "url": urltext, "score": 0};
+    $.ajax({
+      url: "https://time-radish.glitch.me/posts",
+      type: 'POST',
+      contentType:'application/json',
+      data: JSON.stringify(data),
+      headers: {
+      "Username":"Laci",
+      },
+      dataType:'json',
+      success: function(data){
+        console.log(data);
+        if(document.activeElement.value != "just submit") {
+            window.location.replace("Poster.html");
+        }
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        if (xhr.status == 200) {
+          console.log(ajaxOptions);
+        }
+        else {
+          console.log(xhr.status);
+          console.log(thrownError);
+        }
       }
-      var sendurl = document.querySelector("div > input");
-      var urltext = sendurl.value;
-      var data = {"title": text, "url": urltext, "score": 0};
-      $.ajax({
-        url: "https://time-radish.glitch.me/posts",
-        type: 'POST',
-        contentType:'application/json',
-        data: JSON.stringify(data),
-        headers: {
-        "Username":"Laci",
-        },
-        dataType:'json',
-        success: function(data){
-          console.log(data);
-          //window.location.replace("Poster.html");
-            },
-        error: function(xhr, ajaxOptions, thrownError) {
-          if (xhr.status == 200) {
-            console.log(ajaxOptions);
-          }
-          else {
-            console.log(xhr.status);
-            console.log(thrownError);
-          }
-          }
-        });
-    }
-    </script>
+    });
+  }
+  </script>
 </body>
 </html>

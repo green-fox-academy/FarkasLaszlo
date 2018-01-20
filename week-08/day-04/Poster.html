@@ -28,7 +28,7 @@
       <li>Planetary Science</li>
       <li>Astrobiology</li>
     </ul>
-    <button onclick="deleteAll();" class="deleter">Delete all garbage</button>
+    <button onclick="deleteAll();" class="deleter">Delete all posts</button>
   </article>
   </div>
   <script>
@@ -40,7 +40,7 @@
     console.log(xhr.readyState);
     if(xhr.readyState == 4) {
     console.log(xhr);
-    json = JSON.parse(xhr.responseText);
+    var json = JSON.parse(xhr.responseText);
     console.log(json.posts);
     var main = document.querySelector("main");
     for(var i = 0; i < json.posts.length;i++) {
@@ -63,7 +63,7 @@
       post.appendChild(postdiv);
       var mainpost = document.createElement("mainpost");
       var title = document.createElement("posttitle");
-      title.innerHTML = json.posts[i].title + " " + "<span style='color:grey;'>(" + json.posts[i].url +")<span>";
+      title.innerHTML = json.posts[i].title + " " + "<span style='color:grey;'>(" + json.posts[i].url + ")<span>";
       var submitted = document.createElement("submitted");
       submitted.innerHTML = countTimestamp(json.posts[i].timestamp, json.posts[i].owner);
       var modify = document.createElement("button");
@@ -93,19 +93,19 @@
       }
       text = "";
       if(time < 3600 * 1000) {
-        return text = "submitted " + Math.floor(time/1000) + " seconds ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+        return text = "submitted " + Math.floor(time/1000) + " seconds ago by <span style='color:blue;font-weight:bold;'>" + person + "<span>";
       }else if(time < 3600 * 24 * 1000) {
-        return text = "submitted " + Math.floor(time/3600/1000) + " hours ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+        return text = "submitted " + Math.floor(time/3600/1000) + " hours ago by <span style='color:blue;font-weight:bold;'>" + person + "<span>";
       }else if(time < 3600 * 24 * 365 * 1000) {
-        return text = "submitted " + Math.floor(time/3600/24/1000) + " days ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+        return text = "submitted " + Math.floor(time/3600/24/1000) + " days ago by <span style='color:blue;font-weight:bold;'>" + person + "<span>";
       }else {
-        return text = "submitted " + Math.floor(time/3600/24/365/1000) + " years ago by <span style='color:blue;font-weight:bold;'>" + person +"<span>";
+        return text = "submitted " + Math.floor(time/3600/24/365/1000) + " years ago by <span style='color:blue;font-weight:bold;'>" + person + "<span>";
       }
     }
 
 function getActive() {
     voting = new XMLHttpRequest();
-  console.log(document.activeElement.id + "   "+ document.activeElement.className);
+  console.log(document.activeElement.id + "   " + document.activeElement.className);
   if(document.activeElement.className == "upvote") {
     voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.id + "/upvote");
     voting.setRequestHeader("Accept", "application/json");
