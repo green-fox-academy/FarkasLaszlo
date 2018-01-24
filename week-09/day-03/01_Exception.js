@@ -4,22 +4,21 @@
 // arguments, throw the right error and write it to the console.
 // It should add the strings too if the arguments are appropriate.
 
-let  addString = function(str1, str2, printStr){
-  let newStr = "";
-  typeof str1 != "string" ? throwError(str1):
-  typeof str2 != "string" ? throwError(str2):
-  typeof printStr != "function" ? throwError(printStr):
-  newStr = str1 + str2;
-  
-  function throwError(wrongParameter) {
-    throw wrongParameter + ' is a ' + typeof wrongParameter + ' and not a string';
-  }
-  
-  printStr(newStr);
+function throwError(wrongParameter) {
+  throw String(wrongParameter) + ' is a ' + typeof wrongParameter + ' and not a string';
 }
 
-let printStr = function(str) {
+const printStr = function (str) {
   console.log(str);
-}
+};
 
-addString("It's", " cool", printStr);
+const addString = function (str1, str2, printString) {
+  let newStr;
+  typeof str1 !== 'string' ? throwError(str1):
+  typeof str2 !== 'string' ? throwError(str2):
+  typeof printString !== 'function' ? throwError(printString):
+  newStr = str1 + str2;
+  printStr(newStr);
+};
+
+addString("It's", ' cool', printStr);
