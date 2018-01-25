@@ -194,12 +194,13 @@ $("#sith").on("click", function () {
     $.post({url: window.baseUrl + "/sith", data: JSON.stringify({
         "text": "This is my example sentence. Just for fun."
       }), contentType: 'application/json; charset=utf-8'}).done(function (data) {
-        if("sith_text" in data && data["sith_text"] === "Is this example my sentence. Arrgh. Uhmm. For just fun. Err..err.err.") {
+        if("sith_text" in data && data["sith_text"] === "Is this example my. Just fun for. ") {
             handle("#sith_response", "The force is with you!");
         } else {
             handle("#sith_response", "The force is not with you", "Sith language", data);
         }
     }).error(function (err) {
+        console.log(data["sith_text"]);
         handle("#sith_response", "The force is not with you at all", "Sith language", err);
     });
     $.post({url: window.baseUrl + "/sith", data: JSON.stringify({

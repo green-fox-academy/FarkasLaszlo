@@ -146,9 +146,9 @@ app.post('/translate', urlencoded, function (req, res) {
 app.post('/sith', urlencoded, function (req, res) {
   if(req.body.text != undefined) {
     let translatedText = "";
-    translatedText = translate(req.body.text);
+    translatedText = sithTranslator(req.body.text);
     res.json({ 
-      translated: translatedText,
+      sith_text: translatedText,
     });
   } else if(req.body.text == undefined) {
     res.json({ 
@@ -156,6 +156,33 @@ app.post('/sith', urlencoded, function (req, res) {
        });
   }
 });
+
+function sithTranslator (text) {
+  text = text.split('.');
+  let result = "";
+  for(let x = 0; x < text.length; x++) {
+    let newtext = [];
+    let smalltext = "";
+    newtext = text[x].split(" ");
+    for (let i = 0; i < newtext.length; i += 2) {
+      if (newtext[i + 1] !== undefined) {
+        newtext[i] = [newtext[i+1], newtext[i+1] = newtext[i] ][0];
+      }
+    }
+    if(newtext[1] !== undefined && newtext[1][0] !== undefined) {
+      smalltext = newtext[1][0].toLowerCase() + newtext[1].substring(1);
+      newtext[1] = smalltext;
+      smalltext = newtext[0][0].toUpperCase() + newtext[0].substring(1);
+      newtext[0] = smalltext;
+    }
+    newtext.splice(newtext.indexOf(""), 1);
+    newtext = newtext.join(" ") + ".";
+    if (newtext !== ".") {
+      result += newtext + " ";
+    }
+  }
+  return result;
+}
 
 app.listen(8080, function () {
   console.log('The app is running');
