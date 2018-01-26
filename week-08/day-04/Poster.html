@@ -28,7 +28,7 @@
       <li>Planetary Science</li>
       <li>Astrobiology</li>
     </ul>
-    <button onclick="deleteAll();" class="deleter">Delete all posts</button>
+    <button class="deleter">Delete all posts</button>
   </article>
   </div>
   <script>
@@ -36,20 +36,17 @@
     xhr.open("GET", "https://time-radish.glitch.me/posts");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.send();
-    var json;
+    let json;
     xhr.onreadystatechange = function() {
-    console.log(xhr.readyState);
     if(xhr.readyState == 4) {
-    console.log(xhr);
     json = JSON.parse(xhr.responseText);
-    console.log(json.posts);
-    var main = document.querySelector("main");
+    const main = document.querySelector("main");
     for(var i = 0; i < json.posts.length;i++) {
-      var post = document.createElement("post");
-      var postdiv = document.createElement("div");
-      var upvote = document.createElement("button");
-      var downvote = document.createElement("button");
-      var votes = document.createElement("p");
+      const post = document.createElement("post");
+      const postdiv = document.createElement("div");
+      const upvote = document.createElement("button");
+      const downvote = document.createElement("button");
+      const votes = document.createElement("p");
       postdiv.setAttribute("class", "voter");
       upvote.setAttribute("class", "upvote");
       upvote.setAttribute("name", json.posts[i].id);
@@ -62,13 +59,13 @@
       postdiv.appendChild(votes);
       postdiv.appendChild(downvote);
       post.appendChild(postdiv);
-      var mainpost = document.createElement("mainpost");
-      var title = document.createElement("posttitle");
+      const mainpost = document.createElement("mainpost");
+      const title = document.createElement("posttitle");
       title.innerHTML = json.posts[i].title + " " + "<span style='color:grey;'>(" + json.posts[i].url + ")<span>";
-      var submitted = document.createElement("submitted");
+      const submitted = document.createElement("submitted");
       submitted.innerHTML = countTimestamp(json.posts[i].timestamp, json.posts[i].owner);
-      var modify = document.createElement("button");
-      var remove = document.createElement("button");
+      const modify = document.createElement("button");
+      const remove = document.createElement("button");
       modify.setAttribute("class", "modify");
       modify.setAttribute("name",json.posts[i].id);
       remove.setAttribute("class", "remove");
@@ -86,7 +83,7 @@
   }
 
     function countTimestamp(time, writer) {
-      var person = "";
+      let person = "";
       if( writer == null) {
       person = "anonymous";
       }else {
@@ -106,7 +103,6 @@
 
 function getActive() {
   voting = new XMLHttpRequest();
-  console.log(document.activeElement.name + "   " + document.activeElement.className);
   if(document.activeElement.className == "upvote") {
     voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.name + "/upvote");
   }else if(document.activeElement.className == "downvote") {
@@ -121,27 +117,28 @@ function getActive() {
     if(voting.readyState == 4) {
       json2 = JSON.parse(voting.responseText);
       if(document.activeElement.className == "upvote" || document.activeElement.className == "downvote") {
-        var par = document.querySelector(".a" + json2.id);
+        const par = document.querySelector(".a" + json2.id);
         par.textContent = json2.score;
       }else if(document.activeElement.className == "remove") {
-        var main = document.querySelector("main");
-        var post = document.querySelector(".b" + json2.id);
+        const main = document.querySelector("main");
+        const post = document.querySelector(".b" + json2.id);
         main.removeChild(post);
         }
       }
     }
   }
 }
-
+let deleterbutton = document.querySelector(".deleter");
+deleterbutton.addEventListener("click", deleteAll);
   function deleteAll() {
-    var i = 0;
-    var timer = setInterval(function() {
+    let i = 0;
+    const timer = setInterval(function() {
       i = deleter(i);
       i++;
       if(i == json.posts.length) {
-        var postedposts = document.querySelectorAll("post");
-        var main = document.querySelector("main");
-        for(var x = 0;postedposts.length > x;x++){
+        const postedposts = document.querySelectorAll("post");
+        const main = document.querySelector("main");
+        for(let x = 0;postedposts.length > x;x++){
           main.removeChild(postedposts[x]);
         }
         stop();
@@ -151,7 +148,7 @@ function getActive() {
       clearInterval(timer);
     }
     function deleter(a) {
-      var deletepost = new XMLHttpRequest();
+      const deletepost = new XMLHttpRequest();
       deletepost.open("DELETE", "https://time-radish.glitch.me/posts/" + json.posts[a].id);
       deletepost.setRequestHeader("Accept", "application/json");
       deletepost.send();
