@@ -8,7 +8,9 @@ let TennisGame1 = function(player1Name, player2Name) {
   this.wonPoint = function(playerName) {playerName === "player1" ? this.playerscore_1 += 1 : this.playerscore_2 += 1;};
   this.getScore = function() {
     let score = "";
-    this.playerscore_1 === this.playerscore_2 ? score = getEvenResults(this.playerscore_1) : this.playerscore_1 >= 4 || this.playerscore_2 >= 4 ? score = getWinner(this.playerscore_1,this.playerscore_2) : score = getNoWinner(this.playerscore_1,this.playerscore_2);
+    this.playerscore_1 === this.playerscore_2 ? score = getEvenResults(this.playerscore_1) : 
+    this.playerscore_1 >= 4 || this.playerscore_2 >= 4 ? score = getWinner(this.playerscore_1,this.playerscore_2) : 
+    score = getNoWinner(this.playerscore_1,this.playerscore_2);
     return score;
   };
 }
