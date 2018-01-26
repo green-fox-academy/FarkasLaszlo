@@ -24,15 +24,15 @@
   <input class="submit" onclick="grabText();" type="button" value="just submit" />
   <script>
   function grabText() {
-    var posttitle = document.querySelector("textarea");
-    var text = posttitle.value;
+    const posttitle = document.querySelector("textarea");
+    let text = posttitle.value;
     if(text == "") {
       alert("title field is empty");
       throw "its empty";
     }
-    var sendurl = document.querySelector("div > input");
-    var urltext = sendurl.value;
-    var data = {"title": text, "url": urltext, "score": 0};
+    const sendurl = document.querySelector("div > input");
+    let urltext = sendurl.value;
+    let data = {"title": text, "url": urltext, "score": 0};
     $.ajax({
       url: "https://time-radish.glitch.me/posts",
       type: 'POST',

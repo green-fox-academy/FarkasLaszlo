@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modify Post</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="poster.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+</head>
+<body>
+  <header>
+    <p class="title">SPACE</p>
+  </header>
+  <footer class="container">
+    <div class="poster">
+      <span title="You need to fill it">*</span>
+      <span>title</span>
+      <textarea></textarea>
+      <span>url</span>
+      <input type="text">
+    </div>
+  </footer>
+  <input class="submit" onclick="grabText();" type="button" value="Modify post" />  
+  <script>
+    function grabText() {
+      const posttitle = document.querySelector("textarea");
+      const text = posttitle.value;
+      if(text == "") {
+        alert("title field is empty");
+        throw "its empty";
+      }
+      const sendurl = document.querySelector("div > input");
+      const urltext = sendurl.value;
+      const data = {"title": text, "url": urltext};
+      $.ajax({
+        url: "https://time-radish.glitch.me/posts/" + result.id,
+        type: 'PUT',
+        contentType:'application/json',
+        data: JSON.stringify(data),
+        headers: {
+        "Username":"Laci",
+        },
+        dataType:'json',
+        success: function(data){
+          console.log(data);
+          window.location.replace("Poster.html");
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+          if (xhr.status == 200) {
+            console.log(ajaxOptions);
+          }
+          else {
+            console.log(xhr.status);
+            console.log(thrownError);
+          }
+        }
+      });
+    }
+    const parseGetVariables = function(url) {
+    let urlParams = {};
+    url.replace(
+      new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+      function($0, $1, $2, $3) {
+        urlParams[$1] = $3;
+      }
+    );
+  
+    return urlParams;
+  }
+  let url = location.search;  
+  const result = parseGetVariables(url );  
+  console.log(result);
+  const titletext = result.title.split("%20");
+  
+  const textareaa = document.querySelector("textarea");
+  for(let i = 0; i < (titletext.length -1);i++) {
+    textareaa.value += titletext[i] + " ";
+  }
+  const urltext = document.querySelector("div > input");
+  urltext.value = titletext[titletext.length-1].substring(1,titletext[titletext.length-1].length -1);
+    </script>
+</body>
+</html>

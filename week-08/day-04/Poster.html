@@ -109,6 +109,10 @@ function getActive() {
     voting.open("PUT", "https://time-radish.glitch.me/posts/" + document.activeElement.name + "/downvote");
   }else if(document.activeElement.className == "remove") {
     voting.open("DELETE", "https://time-radish.glitch.me/posts/" + document.activeElement.name);
+  }else if(document.activeElement.className == "modify") {
+    let title = document.querySelector(".b" + document.activeElement.name + "> mainpost > posttitle");
+    let text = title.innerText;
+    window.location.replace("Modify.html?id=" + document.activeElement.name + "&title=" + text);
   }
   if(voting.readyState >= 1) {
     voting.setRequestHeader("Accept", "application/json");
