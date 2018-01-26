@@ -36,11 +36,12 @@
     xhr.open("GET", "https://time-radish.glitch.me/posts");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.send();
+    var json;
     xhr.onreadystatechange = function() {
     console.log(xhr.readyState);
     if(xhr.readyState == 4) {
     console.log(xhr);
-    var json = JSON.parse(xhr.responseText);
+    json = JSON.parse(xhr.responseText);
     console.log(json.posts);
     var main = document.querySelector("main");
     for(var i = 0; i < json.posts.length;i++) {
@@ -133,7 +134,7 @@ function getActive() {
 }
 
   function deleteAll() {
-      var i = 0;
+    var i = 0;
     var timer = setInterval(function() {
       i = deleter(i);
       i++;
