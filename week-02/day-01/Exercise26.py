@@ -11,15 +11,15 @@
 # 3
 # 4
 # 5
-a = input("First number: ")
-b = input("Second number: ")
-a= int(a)
-b=int(b)
-if a>=b:
-    print("The second number should be biggger")
+a = input('First number: ')
+b = input('Second number: ')
+a = int(a)
+b = int(b)
+if a >= b:
+    print('The second number should be biggger')
 else:
-    while a<b:
+    while a < b:
         print(a)
-        a+=1
+        a += 1
 
 

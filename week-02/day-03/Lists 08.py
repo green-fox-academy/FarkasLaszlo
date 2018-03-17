@@ -5,29 +5,29 @@
 # +, -, *, /, % and it should support two operands.
 
 # The format of the expressions must be: {operation} {operand} {operand}.
-# Examples: "+ 3 3" (the result will be 6) or "* 4 4" (the result will be 16)
+# Examples: '+ 3 3' (the result will be 6) or '* 4 4' (the result will be 16)
 
 # You should use the input() function to accept user input
 # It should work like this:
 
 # Start the program
-# It prints: "Please type in the expression:"
+# It prints: 'Please type in the expression:'
 # Waits for the user input
 # Print the result
 # Exit
-k = input("Enter : ").split(' ')
+k = input('Enter : ').split(' ')
 sum = 0
-if k[0] == "+":
+if k[0] == '+':
     sum = float(k[1]) + float(k[2])
-elif k[0] == "-":
+elif k[0] == '-':
     sum = float(k[1]) - float(k[2])
-elif k[0] == "*":
+elif k[0] == '*':
     sum = float(k[1]) * float(k[2])
-elif k[0] == "/":
+elif k[0] == '/':
     sum = float(k[1]) / float(k[2])
-elif k[0] == "%":
+elif k[0] == '%':
     sum = float(k[1]) % float(k[2])
-elif k[0] == "**":
+elif k[0] == '**':
     sum = float(k[1]) ** float(k[2])
 
 

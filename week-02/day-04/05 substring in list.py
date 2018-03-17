@@ -3,16 +3,14 @@
 #Returns -1 if the string is not part any of the strings in the list
 #Example
 
-#input: "ching", ["this", "is", "what", "I'm", "searching", "in"]
+#input: 'ching', ['this', 'is', 'what', 'I'm', 'searching', 'in']
 #output: 4
-input_string = ["this", "is", "what", "I'm", "searching", "in"]
-search_string = "searching"
+input_string = ['this', 'is', 'what', 'I\'m', 'searching', 'in']
+search_string = 'searching'
 
-def search(input_string,search_string):
-    for i in range(len(input_string)):
-        for x in range(len(input_string[i])):
-            if input_string[i][0:x+1] == search_string:
-                return i
+def search(string_list,string_to_find):
+    if string_to_find in string_list:
+        return string_list.index(string_to_find)
     return -1
 
 print(search(input_string,search_string))

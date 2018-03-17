@@ -33,8 +33,8 @@ def security_check(queue):
         if queue[i]['alcohol'] != 0:
             security_alcohol_loot += queue[i]['alcohol']
             queue[i]['alcohol'] -= queue[i]['alcohol']
-    print("They are in the watchlist: ", watchlist)
-    print("This many alcohol has been confiscated",security_alcohol_loot)
+    print('They are in the watchlist: ', watchlist)
+    print('This many alcohol has been confiscated',security_alcohol_loot)
     print(queue)
 
     festivalgoers = []
@@ -43,4 +43,4 @@ def security_check(queue):
     return festivalgoers
 
 
-print("They can enter the festival: ", security_check(queue))
+print('They can enter the festival: ', security_check(queue))

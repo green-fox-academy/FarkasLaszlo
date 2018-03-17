@@ -1,8 +1,7 @@
-string = "greenfox"
+string = 'greenfox'
 
 def palindrome(string):
-    new_string = string
-    new_string += string[::-1]
-    return new_string
+    string += string[::-1]
+    return string
 
 print(palindrome(string))

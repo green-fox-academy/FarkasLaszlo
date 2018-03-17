@@ -28,31 +28,38 @@ ingredients = [
 ]
 def box(ingredients):
     first_length = []
-    second_length = len(" Needs cooling ")
-    third_length = len(" In stock ")
+    second_length = len(' Needs cooling ')
+    third_length = len(' In stock ')
+    plus = '+'
+    minus = '-'
+    space = ' '
+    separator = '|'
 
     stock = []
     cool_list = []
     for i in range(len(ingredients)):
-        if len(first_length)<len(ingredients[i]['name']):
+        if len(first_length) < len(ingredients[i]['name']):
             first_length = ingredients[i]['name']
         if ingredients[i]['needs_cooling'] == True:
-            cool_list.append("Yes")
+            cool_list.append('Yes')
         else:
-            cool_list.append("No")
+            cool_list.append('No')
         if ingredients[i]['in_stock'] == 0:
-            stock.append("-")
+            stock.append('-')
         else:
             stock.append(str(ingredients[i]['in_stock']))
 
 
-    print("+"+"-"*(len(first_length)+2)+"+"+"-"*second_length+"+"+"-"*third_length+"+")
-    print("|"+" "+"Ingredient"+" "*(len(first_length)-len("Ingredient ") +2)+"|"+" Needs cooling "+"|"+" In stock "+"|")
-    print("+"+"-"*(len(first_length)+2)+"+"+"-"*second_length+"+"+"-"*third_length+"+")
+    print(plus + minus * (len(first_length) + 2) + plus + minus * second_length + plus + minus * third_length + plus)
+    print(separator + space + 'Ingredient' + space * (len(first_length) - len('Ingredient ') + 2) +
+    separator + ' Needs cooling ' + separator + ' In stock ' + separator)
+    print(plus + minus * (len(first_length) + 2) + plus + minus * second_length + plus + minus * third_length + plus)
 
     for i in range(len(ingredients)):
-        print("|"+" "+ingredients[i]['name']+" "*(len(first_length)-len(ingredients[i]['name']) +1)+"|"+" "+cool_list[i] +" "*(second_length-1-len(cool_list[i]))+"|"+" "+stock[i]+" "*(third_length-2)+"|")
-    print("+"+"-"*(len(first_length)+2)+"+"+"-"*second_length+"+"+"-"*third_length+"+")
+        print(separator + space + ingredients[i]['name'] + space * (len(first_length) - len(ingredients[i]['name']) + 1) 
+        + separator + space+cool_list[i] + space * (second_length - 1 - len(cool_list[i])) + separator + space + stock[i] +
+        space * (third_length - 2) + separator)
+    print(plus + minus * (len(first_length) + 2) + plus + minus * second_length + plus + minus * third_length + plus)
 
 
 box(ingredients)

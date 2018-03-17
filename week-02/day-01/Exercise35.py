@@ -9,11 +9,9 @@
 # % % % % 
 #  % % % %
 #
-b= " "
-c= "%"
-a=0
-n=4
-while a<n:
-    print((c+b)*n)
-    print((b+c)*n)
-    a+=1
+space = " "
+sign = "%"
+n = 4
+for i in range(n):
+    print((sign + space) * n)
+    print((space + sign) * n)

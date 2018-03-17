@@ -23,7 +23,7 @@ print(josephus_a(41))
 import math
 def josephus_b(n):
     a = 0
-    a = 1 + 2*n - 2**(1+int(math.log(n, 2)))
+    a = 1 + 2 * n - 2 ** (1 + int(math.log(n, 2)))
     return a
 
 print(josephus_b(1))

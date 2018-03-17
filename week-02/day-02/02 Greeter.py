@@ -2,8 +2,8 @@
 # - Create a function called `greet` that greets it's input parameter
 #     - Greeting is printing e.g. `Greetings, dear Greenfox`
 # - Greet `al`
-al = "Greenfox"
+al = 'Greenfox'
 def greet(al):
-    print("Greetings, dear "+al)
+    print('Greetings, dear ' + al)
 
 greet(al)

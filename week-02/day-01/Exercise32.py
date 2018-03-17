@@ -10,14 +10,14 @@
 # %%%%%
 #
 # The square should have as many lines as the number was
-a = input("A number: ")
+a = input('A number: ')
 a = int(a)
-a -=1
+a -= 1
 n = 1
-b = "%"
-c = " "
-print((a+1)*b)
-while n<a:
-    print(b+(n-1)*c+b+(a-n-1)*c+b)
-    n+=1
-print((a+1)*b)
+sign = '%'
+space = ' '
+print((a + 1) * sign)
+while n < a:
+    print(sign + (n - 1) * space + sign + (a - n - 1) * space + sign)
+    n += 1
+print((a + 1) * sign)

@@ -22,17 +22,22 @@ balance(accounts)
 
 print()
 def transfer(from_account, to_account, amount):
+    valid = 0
+    for i in range(len(accounts)):
+        if from_account == accounts[i]['account_number'] or to_account == accounts[i]['account_number']:
+            valid += 1
 
-    if (from_account or to_account) != (11234543 or 43546731 or 23456311):
+    if valid != 2:
         print("404 - account not found")
+        return
 
     for i in range(len(accounts)):
         if from_account == accounts[i]['account_number']:
             accounts[i]['balance'] -= amount
-            print("Money has been sent from this account:", accounts[i]['client_name'], accounts[i]['balance'])
+            print('Money has been sent from this account:', accounts[i]['client_name'], accounts[i]['balance'])
         if to_account == accounts[i]['account_number']:
             accounts[i]['balance'] += amount
-            print("Money has been sent to this account:", accounts[i]['client_name'], accounts[i]['balance'])
+            print('Money has been sent to this account:', accounts[i]['client_name'], accounts[i]['balance'])
 
 
 transfer(11234543,43546731,100000000)

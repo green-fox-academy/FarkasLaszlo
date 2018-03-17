@@ -13,10 +13,7 @@ for x in range(n):
     for y in range(n):
         if x == y:
             a[x][y] = 1
-        else: a[x][y] = 0
-
-
-for x in range(n):
-    for y in range(n):
+        else: 
+            a[x][y] = 0
         print(a[x][y], end=' ')
     print()

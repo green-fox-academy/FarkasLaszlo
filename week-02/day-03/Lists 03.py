@@ -3,8 +3,8 @@
 # The function appends every verb to the preverb and returns the list of the new verbs
 
 
-verbs = ["megy", "ver", "kapcsol", "rak", "néz"]
-preverb = "be"
+verbs = ['megy', 'ver', 'kapcsol', 'rak', 'néz']
+preverb = 'be'
 
 def create_new_verbs():
     newlist = []

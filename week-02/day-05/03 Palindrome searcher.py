@@ -1,27 +1,25 @@
-input_string = "dog goat dad duck doodle never"
-input_string2 = "racecar"
-input_string3 = "A Toyota! Race fast, safe car!"
+input_string = 'dog goat dad duck doodle never'
+input_string2 = 'racecar'
+input_string3 = 'A Toyota! Race fast, safe car!'
 
 def palindrome_search(input_str):
-    a = list()
-    length = 3
-    while length <= len(input_str):
-        for i in range(0, len(input_str)-1, 1):
-            x = input_str[i:i+length:1]
-            if x == x[::-1]:
-                a.append(x)
-        length += 1
+    result = list()
+    result = palindromes(input_str, result)
+    input_str = input_str.replace(' ', '').lower().replace(',', '').replace('!', '')
+    result = palindromes(input_str, result)
+    result = sorted(set(result))
+    return result
 
-    input_str = input_str.replace(" ", "").lower().replace(",","").replace("!","")
+def palindromes(string, search_result):
     length = 3
-    while length <= len(input_str):
-        for i in range(0, len(input_str)-1, 1):
-            x = input_str[i:i+length:1]
-            if x == x[::-1]:
-                a.append(x)
+    while length <= len(string):
+        for i in range(0, len(string) - 1, 1):
+            x = string[i:i + length:1]
+            if x == x[:: -1]:
+                search_result.append(x)
         length += 1
-    a = sorted(set(a))
-    return a
+    return search_result
+
 
 
 

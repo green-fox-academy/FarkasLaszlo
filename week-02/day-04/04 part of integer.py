@@ -6,7 +6,7 @@ def part(input_list, number):
     for i in range(len(input_list)):
         n = 0
         for x in range(len(str(input_list[i]))):
-            if int((input_list[i] / (10**x)) % 10) == number:
+            if int((input_list[i] / (10 ** x)) % 10) == number:
                 if n == 0:
                     out.append(i)
                     n += 1
