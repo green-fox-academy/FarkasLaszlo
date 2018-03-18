@@ -7,14 +7,14 @@ def decrypt(file_name):
     text_list = list(text)
     for x in range(len(text_list)):
         text_list[x] = text_list[x][::2]
-    code.write("".join(text_list))
+    code.write(''.join(text_list))
 
     fw.close()
     code.close()
 
-decrypt("duplicated-chars.txt")
+decrypt('duplicated-chars.txt')
 
-code = open("simple_chars.txt","r")
+code = open('simple_chars.txt','r')
 text = code.readlines()
 for i in range(len(text)):
-    print(text[i],sep="",end="")
+    print(text[i], sep='', end='')

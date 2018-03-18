@@ -7,6 +7,6 @@ def square(base, n):
     elif n == 1:
         return base
     else:
-        return base*square(base,n-1)
+        return base * square(base, n - 1)
 
-print(square(4,2))
+print(square(4, 2))

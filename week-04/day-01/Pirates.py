@@ -1,5 +1,5 @@
 class Pirate():
-    def __init__(self,intoxication=0,death=0):
+    def __init__(self,intoxication = 0, death = 0):
         self.intoxication = intoxication
         self.death = death
 
@@ -8,16 +8,16 @@ class Pirate():
             self.intoxication += 1
             return self.intoxication
         else:
-            print("He's dead")
+            print('He\'s dead')
 
     def how_it_going_mate(self):
         if self.death == 0:
             if 4 >= self.intoxication >= 0:
-                print("Pour me anudder")
+                print('Pour me anudder')
             else:
-                print("Arghh, I'ma Pirate. How d'ya d'ink its goin?")
+                print('Arghh, I\'ma Pirate. How d\'ya d\'ink its goin?')
         else:
-            print("He's dead")
+            print('He\'s dead')
 
     def die(self):
         self.death = 1

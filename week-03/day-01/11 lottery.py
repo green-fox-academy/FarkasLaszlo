@@ -1,14 +1,14 @@
 # Create a method that find the 5 most common lottery numbers otos.csv
 def five_most_frequent(file_name):
-    fw = open(file_name,"r")
+    fw = open(file_name,'r')
     text = fw.readlines()
     big_number_list = list()
     number_list = list()
     frequent_list = [0]*90
-    frequent_dict = ""
+    frequent_dict = ''
     for i in range(len(text)):
-        big_number_list = text[i].split("t")[4].strip()
-        big_number_list = big_number_list.split(";")
+        big_number_list = text[i].split('t')[4].strip()
+        big_number_list = big_number_list.split(';')
         del(big_number_list[0])
         number_list.append(big_number_list)
 
@@ -23,4 +23,4 @@ def five_most_frequent(file_name):
         number_list.append(frequent_dict[i][0])
     return number_list
 
-print(five_most_frequent("otos.csv"))
+print(five_most_frequent('otos.csv'))

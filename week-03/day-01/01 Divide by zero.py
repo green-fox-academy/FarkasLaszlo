@@ -2,7 +2,7 @@ def divide(a):
     try:
         a = 10 / a
     except ZeroDivisionError:
-        return "fail"
+        return 'fail'
     return a
 
 print(divide(0))

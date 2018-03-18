@@ -4,8 +4,8 @@
 
 def copy(file1,file2):
     try:
-        a = open(file1,"r")
-        b = open(file2,"w")
+        a = open(file1,'r')
+        b = open(file2,'w')
         text = a.readlines()
         for i in range(len(text)):
             b.write(text[i])
@@ -15,5 +15,5 @@ def copy(file1,file2):
     except:
         return False
 
-print(copy("file to copy.txt", "copy to this.txt"))
+print(copy('file to copy.txt', 'copy to this.txt'))
 

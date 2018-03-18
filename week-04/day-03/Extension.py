@@ -19,7 +19,7 @@ def median(pool):
     summa = 0
     for i in range(len(pool)):
         summa += pool[i]
-    return summa/len(pool)
+    return summa / len(pool)
 
 
 # Returns true if the param is a vovel
@@ -33,11 +33,11 @@ def is_vovel(char):
 
 # Create a method that translates hungarian into the teve language
 def translate(hungarian):
-    if hungarian == "":
-        return ""
-    elif hungarian[0] in "aeiouéáőűöüóí" or hungarian[0] in "AEIOUÉÁŐŰÖÜÓÍ":
-        if hungarian[0] in "AEIOUÉÁŐŰÖÜÓÍ":
-            return hungarian[0] + "v" + hungarian[0].lower() + translate(hungarian[1:])
-        return hungarian[0] + "v" + hungarian[0] + translate(hungarian[1:])
+    if hungarian == '':
+        return ''
+    elif hungarian[0] in 'aeiouéáőűöüóí' or hungarian[0] in 'AEIOUÉÁŐŰÖÜÓÍ':
+        if hungarian[0] in 'AEIOUÉÁŐŰÖÜÓÍ':
+            return hungarian[0] + 'v' + hungarian[0].lower() + translate(hungarian[1:])
+        return hungarian[0] + 'v' + hungarian[0] + translate(hungarian[1:])
     else:
         return hungarian[0] + translate(hungarian[1:])

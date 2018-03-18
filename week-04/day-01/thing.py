@@ -7,4 +7,4 @@ class Thing:
         self.completed = True
 
     def __str__(self):
-        return ("[x] " if self.completed else "[ ] ") + self.name
+        return ('[x] ' if self.completed else '[ ] ') + self.name

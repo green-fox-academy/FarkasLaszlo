@@ -14,28 +14,31 @@ def rgbhex(r,g,b):
 
 def rainbow_box(x,color):
         if x < 25:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(color,0,0))
+            draw(x, rgbhex(color, 0 , 0))
         elif 25 <= x < 50:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(color,color,0))
+            draw(x, rgbhex(color, color, 0))
         elif 50 <= x < 75:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(color,0,color))
+            draw(x, rgbhex(color, 0, color))
         elif 75 <= x < 100:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(0,color,color))
+            draw(x, rgbhex(0, color, color))
         elif 100 <= x < 125:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(0,0,color))
+            draw(x, rgbhex(0,0,color))
         elif x > 125:
-            canvas.create_rectangle(150-x/2,150-x/2,150+x/2,150+x/2,fill=rgbhex(0,color,0))
+            draw(x, rgbhex(0,color,0))
 
-for i in range(200,0,-10):
+def draw(x, fillcolor):
+    canvas.create_rectangle(150 - x / 2, 150 - x / 2, 150 + x / 2, 150 + x / 2, fill=fillcolor)
+
+for i in range(200, 0, -10):
     if i > 150:
-        color = random.randint(50,220)
-        rainbow_box(i,color)
+        color = random.randint(50, 220)
+        rainbow_box(i, color)
     elif 100 < i <= 150:
-        color = random.randint(50,220)
-        rainbow_box(i,color)
+        color = random.randint(50, 220)
+        rainbow_box(i, color)
     elif 16< i < 100:
-        color = random.randint(50,220)
-        rainbow_box(i,color)
+        color = random.randint(50, 220)
+        rainbow_box(i, color)
 
 
 root.mainloop()

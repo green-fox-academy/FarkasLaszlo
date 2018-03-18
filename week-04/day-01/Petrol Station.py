@@ -26,7 +26,7 @@ class Station(object):
 
 class Car(object):
 
-    def __init__(self, gas_amount=0, capacity=100):
+    def __init__(self, gas_amount = 0, capacity = 100):
         self.gas_amount = gas_amount
         self.capacity = capacity
 
@@ -34,9 +34,13 @@ class Car(object):
 car1 = Car()
 station1 = Station(150)
 station1.refill(car1)
-print("The amount of gas the car has: "+str(car1.gas_amount)+"\n"+"The capacity of the car: "+str(car1.capacity)+"\n"+"The gas left on the station: "+str(station1.gas_amount))
+print('The amount of gas the car has: ' + str(car1.gas_amount) +
+'\nThe capacity of the car: ' + str(car1.capacity) +
+'\nThe gas left on the station: ' + str(station1.gas_amount))
 
-car2 = Car(150,300)
+car2 = Car(150, 300)
 station1 = Station(50)
 station1.refill(car2)
-print("The amount of gas the car has: "+str(car2.gas_amount)+"\n"+"The capacity of the car: "+str(car2.capacity)+"\n"+"The gas left on the station: "+str(station1.gas_amount))
+print('The amount of gas the car has: ' + str(car2.gas_amount) +
+'\nThe capacity of the car: ' + str(car2.capacity) +
+'\n'+'The gas left on the station: ' + str(station1.gas_amount))

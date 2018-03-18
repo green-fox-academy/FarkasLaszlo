@@ -27,13 +27,13 @@ class Favourite:
             self.write_file(argv[i])
 
     def write_file(self, argument):
-        fw = open(self.name, "r")
+        fw = open(self.name, 'r')
         lines = fw.readlines()
         fw.close()
-        fw = open(self.name, "a")
-        if argument + "\n" not in lines:
-            fw.write(argument + "\n")
+        fw = open(self.name, 'a')
+        if argument + '\n' not in lines:
+            fw.write(argument + '\n')
         fw.close()
 
 
-controller = Favourite("favourites.txt")
+controller = Favourite('favourites.txt')

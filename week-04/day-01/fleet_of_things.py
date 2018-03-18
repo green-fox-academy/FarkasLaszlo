@@ -7,14 +7,14 @@ from thing import Thing
 #Download those, use those
 
 fleet1 = Fleet()
-thing1 = Thing("Get milk")
+thing1 = Thing('Get milk')
 fleet1.add(thing1)
-thing1 = Thing("Remove the obstacles")
+thing1 = Thing('Remove the obstacles')
 fleet1.add(thing1)
-thing1 = Thing("Stand up")
+thing1 = Thing('Stand up')
 thing1.complete()
 fleet1.add(thing1)
-thing1 = Thing("Eat lunch")
+thing1 = Thing('Eat lunch')
 thing1.complete()
 fleet1.add(thing1)
 

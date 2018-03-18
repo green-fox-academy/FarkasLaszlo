@@ -7,9 +7,15 @@ canvas.pack()
 
 # reproduce this:
 # [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
-for i in range(20,300,20):
-    canvas.create_line(i,0,300,i,fill="purple")
-for i in range(20,300,20):
-    canvas.create_line(i,300,0,i,fill="green")
+
+def draw(color):
+    for i in range(20,300,20):
+        if color == 'purple':
+            canvas.create_line(i, 0, 300, i, fill=color)
+        elif color == 'green':
+            canvas.create_line(i, 300, 0, i, fill=color)
+
+draw('purple')
+draw('green')
 
 root.mainloop()

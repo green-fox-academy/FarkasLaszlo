@@ -3,7 +3,7 @@ def count(n):
     if n <= 1:
         return 1
     else:
-        return count(n-1) + n
+        return count(n - 1) + n
 
 
 print(count(9))

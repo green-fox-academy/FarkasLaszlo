@@ -5,9 +5,9 @@
 
 def weird_bunnies(n):
     if n % 2 and n > 0:
-        return weird_bunnies(n-1) + 2
+        return weird_bunnies(n - 1) + 2
     elif not n % 2 and n > 0:
-        return weird_bunnies(n-1) + 3
+        return weird_bunnies(n - 1) + 3
     elif n <= 0:
         return 0
 

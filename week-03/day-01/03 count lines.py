@@ -3,7 +3,7 @@
 # It should return zero if it can't open the file, and
 # should not raise any error.
 fw = open('sample.txt', 'w',)
-fw.write("writing some stuff in my text file\nIt's a totally new line\nAnd another one")
+fw.write('writing some stuff in my text file\nIt\'s a totally new line\nAnd another one')
 fw.close()
 
 
@@ -18,4 +18,4 @@ def line_counter(name):
 
 
 print(line_counter('sample.txt'))
-print(line_counter("my-file.txt"))
+print(line_counter('my-file.txt'))

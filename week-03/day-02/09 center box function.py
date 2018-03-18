@@ -10,7 +10,8 @@ canvas.pack()
 # and draws a square of that size to the center of the canvas.
 # draw 3 squares with that function.
 def draw_centerbox(x):
-    canvas.create_polygon(150-x/2,150-x/2,150-x/2,150+x/2,150+x/2,150+x/2,150+x/2,150-x/2,fill="white",outline="black")
+    canvas.create_polygon(150 - x / 2, 150 - x / 2, 150 - x / 2, 150 + x / 2, 150 + x / 2,
+    150 + x / 2, 150 + x / 2, 150 - x / 2, fill='white', outline='black')
 
 
 draw_centerbox(125)

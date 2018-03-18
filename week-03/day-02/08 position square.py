@@ -10,10 +10,10 @@ canvas.pack()
 # and draws a 50x50 square from that point.
 # draw 3 squares with that function.
 def square_draw(x,y):
-    canvas.create_polygon(x,y,x+50,y,x+50,y+50,x,y+50)
+    canvas.create_polygon(x, y, x + 50, y, x + 50, y + 50, x, y + 50)
 
-square_draw(5,5)
-square_draw(100,100)
-square_draw(200,200)
+square_draw(5, 5)
+square_draw(100, 100)
+square_draw(200, 200)
 
 root.mainloop()
