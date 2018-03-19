@@ -6,9 +6,9 @@
 // Surface Area: 600
 // Volume: 1000
 
-var a = 10;
-var b = 10;
-var c = 10;
+const a = 10;
+const b = 10;
+const c = 10;
 
-console.log("Surface Area: " + ((2 * a * b) + (2 * c * b) + (2 * a * c)));
-console.log("Volume: " + (a * b * c));
+console.log('Surface Area: ' + ((2 * a * b) + (2 * c * b) + (2 * a * c)));
+console.log('Volume: ' + (a * b * c));

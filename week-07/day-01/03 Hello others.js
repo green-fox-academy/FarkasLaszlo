@@ -7,7 +7,8 @@
 // Hello, Mary!
 // Hello, Joe!
 
+const classmates = ['Nándi', 'Andris', 'Miki'];
 
-console.log('Hello, Nándi!');
-console.log('Hello, Andris!');
-console.log('Hello, Miki!');
+classmates.map((mate) => {
+  console.log(`Hello, ${mate}!`);
+})

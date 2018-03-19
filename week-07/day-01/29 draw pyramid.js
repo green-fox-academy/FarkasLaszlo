@@ -1,6 +1,6 @@
 'use strict';
 
-var lineCount = 4;
+const lineCount = 4;
 
 // Write a program that draws a
 // pyramid like this:
@@ -13,8 +13,8 @@ var lineCount = 4;
 //
 // The pyramid should have as many lines as lineCount is
 
-var space = " ";
-var star = "*";
-for(var i = 0; i < lineCount;i++){
-  console.log(space.repeat(lineCount - i) + star.repeat(2 * i + 1));
+const space = ' ';
+const star = '*';
+for(let i = 0; i < lineCount;i++){
+  console.log(`${space.repeat(lineCount - i)}${star.repeat(2 * i + 1)}`);
 }

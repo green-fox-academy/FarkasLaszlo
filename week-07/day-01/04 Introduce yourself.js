@@ -11,6 +11,12 @@
 //  31
 //  1.87
 
-console.log("Farkas László");
-console.log("28");
-console.log("1.8");
+const myProfile = {
+  name: 'Farkas László',
+  age: '28',
+  height: '1.8',
+}
+
+console.log(myProfile.name);
+console.log(myProfile.age);
+console.log(myProfile.height);

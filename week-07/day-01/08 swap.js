@@ -1,11 +1,9 @@
 'use strict';
 
-var a = 123;
-var b = 526;
+let a = 123;
+let b = 526;
 
-var c = a;
-a = b;
-b = c;
+[a, b] = [b, a];
 
 console.log(a);
 console.log(b);

@@ -1,6 +1,6 @@
 'use strict';
 
-var lineCount = 6;
+const lineCount = 6;
 
 // Write a program that draws a
 // square like this:
@@ -15,9 +15,9 @@ var lineCount = 6;
 //
 // The square should have as many lines as lineCount is
 
-var n = 2;
-var sign = "%";
-var space = " ";
+let n = 2;
+const sign = '%';
+const space = ' ';
 console.log(sign.repeat(lineCount));
 while(n < lineCount) {
   console.log(sign + space.repeat(lineCount - 2) + sign);

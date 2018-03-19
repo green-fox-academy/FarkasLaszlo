@@ -1,6 +1,6 @@
 'use strict';
 
-var lineCount = 7;
+const lineCount = 7;
 
 // Write a program that draws a
 // diamond like this:
@@ -17,15 +17,18 @@ var lineCount = 7;
 // The diamond should have as many lines as lineCount is
 
 var n = 0;
-var space = " ";
-var star = "*";
-while(n <= lineCount / 2) {
-  console.log(space.repeat(lineCount - n) + star.repeat(2 * n + 1));
-  n++;
-}
-n -= 2;
+var space = ' ';
+var star = '*';
 
-while(0 <= n && n < lineCount/2 ) {
-  console.log(space.repeat(lineCount - n) + star.repeat(2 * n + 1));
-  n--;
+for (let i = 1; i < lineCount + 2; i++) {
+  if(i <= lineCount / 2) {
+    console.log(space.repeat(lineCount - n) + star.repeat(2 * n + 1));
+    n += 1;
+  }
+  if(i > lineCount / 2 && n >= 0) {
+    console.log(space.repeat(lineCount - n) + star.repeat(2 * n + 1));
+    n -= 1;
+  }
 }
+    
+        
