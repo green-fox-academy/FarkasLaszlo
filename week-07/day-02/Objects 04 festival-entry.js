@@ -1,10 +1,8 @@
 'use strict';
 
-var watchlist = []
-
-var security_alchol_loot = 0
-
-var queue = [
+const watchlist = [];
+let security_alcohol_loot = 0;
+const queue = [
 	{ 'name': 'Amanda', 'alcohol': 10, 'guns': 1 },
 	{ 'name': 'Tibi', 'alcohol': 0, 'guns': 0 },
 	{ 'name': 'Dolores', 'alcohol': 0, 'guns': 1 },
@@ -24,27 +22,26 @@ var queue = [
 // If alcohol is found confiscate it (set it to zero and add it to security_alchol_loot) and let them enter the festival
 
 function security_check(entry) {
-  var security_alcohol_loot = 0
-  var watchlist = []
-  for(var i = 0;i < entry.length;i++){
-    if(entry[i].guns != 0) {
-      watchlist += entry[i].name + ", ";
-      entry[i].guns = 0;
+  entry.map(person => {
+    if(person.guns !== 0) {
+      watchlist.push(person.name);
+      person.guns = 0;
     }
-    if(entry[i].alcohol != 0) {
-      security_alcohol_loot += entry[i].alcohol;
-      entry[i].alcohol = 0;
+    if (person.alcohol !== 0) {
+      security_alcohol_loot += person.alcohol;
+      person.alcohol = 0;
     }
-  }
-  console.log("They are in the watchlist: " + watchlist);
-  console.log("This many alcohol has been confiscated: " + security_alcohol_loot);
+  });
+  
+  console.log(`They are in the watchlist: ${watchlist}`);
+  console.log(`This many alcohol has been confiscated: ${security_alcohol_loot}`);
   console.log(entry);
 
-  var festivalgoers = [];
-  for(var i = 0; i < entry.length;i++){
-    festivalgoers += entry[i].name + ", ";
-  }
+  const festivalgoers = [];
+  entry.map(person => {
+    festivalgoers.push(person.name);
+  });
   return festivalgoers;
 }
 
-console.log("They can enter the festival: " + security_check(queue));
+console.log(`They can enter the festival: ${security_check(queue)}`);

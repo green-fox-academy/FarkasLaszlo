@@ -4,10 +4,10 @@
 //   and appends an 'a' character to its end
 // - Print the result of `appendA(am)` to the console
 
-var am = "kuty";
+const am = 'kuty';
 
 function appendA(string) {
-  string += "a";
+  string += 'a';
   return string;
 }
 

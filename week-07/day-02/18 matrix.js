@@ -12,11 +12,11 @@
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-var matrix = [];
-var size = 4;
-for(var i = 0; i < size; i++) {
-  var empty_list = []
-  for(var j = 0; j < size; j++) {
+const matrix = [];
+const size = 4;
+for(let i = 0; i < size; i++) {
+  const empty_list = []
+  for(let j = 0; j < size; j++) {
     if(i + j == size - 1){
       empty_list[j] = 1;
     }else {
@@ -26,4 +26,4 @@ for(var i = 0; i < size; i++) {
   matrix[i] = empty_list;
 }
 
-console.log(matrix);
+matrix.map(item => console.log(item));

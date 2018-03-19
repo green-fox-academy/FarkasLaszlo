@@ -5,13 +5,9 @@
 //   with the following content: `[4, 5]`
 // - Log to the console if `p2` has more elements than `p1`
 
-var p1 = [1, 2, 3];
-var p2 = [4, 5, 6];
+const p1 = [1, 2, 3];
+const p2 = [4, 5];
 
-if( p2.length > p1.length) {
-  console.log("p2 is longer");
-} else if( p2.length < p1.length) {
-  console.log("p1 is longer");
-} else if( p2.length == p1.length) {
-  console.log("they have the same number of elements");
-}
+p2.length > p1.length ? console.log('p2 is longer') :
+p2.length < p1.length ? console.log('p1 is longer') :
+console.log('they have the same number of elements');

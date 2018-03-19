@@ -1,6 +1,6 @@
 'use strict';
 
-var students = [
+const students = [
         {'name': 'Rezso', 'age': 9.5, 'candies': 2},
         {'name': 'Gerzson', 'age': 10, 'candies': 1},
         {'name': 'Aurel', 'age': 7, 'candies': 3},
@@ -13,24 +13,22 @@ var students = [
 // create a function that takes a list of students and logs: 
 //  - how many candies they have on average
 
-function candy_counter(student_data) {
-  var student_list = [];
-  for( var i = 0; i < student_data.length;i++) {
-    if(student_data[i].candies > 4) {
-      student_list += student_data[i].name;
-    }
-  }
+function candy_counter(student_array) {
+  const student_list = [];
+  student_array.map(student => {
+    student.candies > 4 ? student_list.push(student.name) : null;
+  });
   return student_list;
 }
 
 console.log(candy_counter(students));
 
-function get_average(student_data) {
-  var average_candy = 0;
-  for(var i = 0; i < student_data.length;i++) {
-    average_candy += student_data[i].candies;
-  }
-  average_candy /= student_data.length;
+function get_average(student_array) {
+  let average_candy = 0;
+  student_array.map(student => {
+    average_candy += student.candies;
+  });
+  average_candy /= student_array.length;
   return average_candy;
 }
 

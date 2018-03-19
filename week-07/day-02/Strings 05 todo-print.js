@@ -1,7 +1,7 @@
 'use strict';
-// Add "My todo:" to the beginning of the todoText
-// Add " - Download games" to the end of the todoText
-// Add " - Diablo" to the end of the todoText but with indention
+// Add 'My todo:' to the beginning of the todoText
+// Add ' - Download games' to the end of the todoText
+// Add ' - Diablo' to the end of the todoText but with indention
 
 // Expected outpt:
 
@@ -10,6 +10,6 @@
 //  - Download games
 //      - Diablo
 
-var todoText = "My todo:\n - Buy milk\n - Download games\n\t\t - Diablo\n";
+const todoText = 'My todo:\n - Buy milk\n - Download games\n\t\t - Diablo\n';
 
 console.log(todoText);

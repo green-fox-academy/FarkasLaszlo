@@ -3,7 +3,7 @@
 // - Double all the strings in the array, use a built in array method instead of a loop
 // It should print: ['GinGin', 'WhiskeyWhiskey', 'WineWine', 'BeerBeer']`
 
-var ag = ["Gin", "Whiskey", "Wine", "Beer"];
+let ag = ['Gin', 'Whiskey', 'Wine', 'Beer'];
 
 ag = ag.map(i => i + i);
 console.log(ag);

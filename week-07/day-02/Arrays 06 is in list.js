@@ -3,10 +3,10 @@
 // Create a 'numChecker' function that accepts 'listOfNumbers' as an input
 // it should return "true" if it contains all, otherwise "false"
 
-var listOfNumbers = [2, 4, 6, 8, 10, 12, 14, 16]
+const listOfNumbers = [2, 4, 6, 8, 10, 12, 14, 16];
 
 function numChecker(numbers) {
-  if(numbers.includes(4) && numbers.includes(8) && numbers.includes(12) && numbers.includes(16)) {
+  if (numbers.includes(4) && numbers.includes(8) && numbers.includes(12) && numbers.includes(16)) {
       return true;
   }
   return false;

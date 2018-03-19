@@ -5,14 +5,11 @@
 //     - Prepare for the special case when no parameters are given
 // - Greet `al`
 
-var al = "Greenfox";
+const al = 'Greenfox';
 
 function greet(welcome) {
-  if (welcome != undefined){
-    console.log("Greeting, dear " + welcome);
-  } else {
-    console.log("Give some parameter!!!!");
-  }
+  welcome != undefined ? console.log(`Greeting, dear ${welcome}`) :
+  console.log('Give some parameter!!!!');
 }
 
 greet(al);

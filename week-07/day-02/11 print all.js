@@ -4,11 +4,5 @@
 // *hint: use a loop, console.log(af) won't cut it
 // - bonus for using the correct built in array method
 
-var af = [4, 5, 6, 7];
-for(var i = 0;i < af.length;i++) {
-  console.log(af[i]);
-}
-
-for(var i = 0;i < af.length;i++) {
-  console.log(af.slice(i,i+1));
-}
+const af = [4, 5, 6, 7];
+af.map(item => console.log(item));
