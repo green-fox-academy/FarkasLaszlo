@@ -1,9 +1,7 @@
-let json;
-let json2;
 let songlist = [];
 let currentPlayList = 1;
 const media = document.querySelector('audio');
-let shuf = false;
+let randomPlay = false;
 
 loadAllPlaylist();
 
@@ -24,7 +22,7 @@ function lastTrack(target) {
 function nextTrack(target) {
   changeColor();
   const index = songlist.indexOf(target.className);
-  if (shuf === false) {
+  if (randomPlay === false) {
     index === (songlist.length - 1) ?
       selectCurrentData(`songtitle.${songlist[0]}`, 0, target) :
       selectCurrentData(`songtitle.${songlist[index + 1]}`, index + 1, target);
@@ -84,8 +82,8 @@ function addPlaylist() {
   playListAdd.setRequestHeader('Content-Type', 'application/json');
   playListAdd.onreadystatechange = () => {
     if (playListAdd.readyState === playListAdd.DONE) {
-      json2 = JSON.parse(playListAdd.responseText);
-      createPlaylist(json2);
+      const playlists = JSON.parse(playListAdd.responseText);
+      createPlaylist(playlists);
     }
   };
   playListAdd.send(JSON.stringify({ name: tablename }));
@@ -101,8 +99,8 @@ function loadAllPlaylist() {
   loadPlaylists.setRequestHeader('Accept', 'application/json');
   loadPlaylists.onreadystatechange = () => {
     if (loadPlaylists.readyState === loadPlaylists.DONE) {
-      json2 = JSON.parse(loadPlaylists.responseText);
-      createPlaylist(json2);
+      const playlists = JSON.parse(loadPlaylists.responseText);
+      createPlaylist(playlists);
     }
   };
   loadPlaylists.send();
@@ -160,8 +158,8 @@ function displayList(e) {
   playListRequest.setRequestHeader('Accept', 'application/json');
   playListRequest.onreadystatechange = () => {
     if (playListRequest.DONE) {
-      json = JSON.parse(playListRequest.responseText);
-      createSongs(json);
+      const playlist = JSON.parse(playListRequest.responseText);
+      createSongs(playlist);
     }
   };
   playListRequest.send();
@@ -272,8 +270,8 @@ function addSongToList() {
   addSongToPlayList.setRequestHeader('Accept', 'application/json');
   addSongToPlayList.onreadystatechange = () => {
     if (addSongToPlayList.readyState === 4) {
-      json = JSON.parse(addSongToPlayList.responseText);
-      createSongs(json);
+      const playlist = JSON.parse(addSongToPlayList.responseText);
+      createSongs(playlist);
     }
   };
   addSongToPlayList.send();
@@ -330,11 +328,11 @@ function addClickToAudio() {
   const rewind = document.querySelector('.rewind');
 
   shuffle.addEventListener('click', () => {
-    if (shuf === false) {
-      shuf = true;
+    if (randomPlay === false) {
+      randomPlay = true;
       shuffle.style.backgroundColor = 'deepskyblue';
     } else {
-      shuf = false;
+      randomPlay = false;
       shuffle.style.backgroundColor = 'rgb(230,230,230)';
     }
   });
@@ -365,10 +363,10 @@ function getNewPicture(authordata) {
   imagedata.open('GET', `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${authordata}&api_key=ee125f318852fc7d1c2f4e21458a0035&format=json`);
   imagedata.onreadystatechange = () => {
     if (imagedata.DONE) {
-      const json3 = JSON.parse(imagedata.responseText);
+      const artistData = JSON.parse(imagedata.responseText);
       const img = document.querySelector('logo > img.placeholder');
-      if (json3.artist !== undefined) {
-        img.setAttribute('src', json3.artist.image[3]['#text']);
+      if (artistData.artist !== undefined) {
+        img.setAttribute('src', artistData.artist.image[3]['#text']);
       } else {
         img.setAttribute('src', 'assets/galaxy.jpg');
       }
