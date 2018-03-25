@@ -157,7 +157,7 @@ function displayList(e) {
   playListRequest.open('GET', `/${num}`);
   playListRequest.setRequestHeader('Accept', 'application/json');
   playListRequest.onreadystatechange = () => {
-    if (playListRequest.DONE) {
+    if (playListRequest.readyState === playListRequest.DONE) {
       const playlist = JSON.parse(playListRequest.responseText);
       createSongs(playlist);
     }
@@ -269,7 +269,7 @@ function addSongToList() {
   addSongToPlayList.open('PUT', `/addtoplaylist/${currentPlayList}&${media.className.replace(/[^0-9]/g, '')}`);
   addSongToPlayList.setRequestHeader('Accept', 'application/json');
   addSongToPlayList.onreadystatechange = () => {
-    if (addSongToPlayList.readyState === 4) {
+    if (addSongToPlayList.readyState === addSongToPlayList.DONE) {
       const playlist = JSON.parse(addSongToPlayList.responseText);
       createSongs(playlist);
     }
@@ -362,7 +362,7 @@ function getNewPicture(authordata) {
   const imagedata = new XMLHttpRequest();
   imagedata.open('GET', `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${authordata}&api_key=ee125f318852fc7d1c2f4e21458a0035&format=json`);
   imagedata.onreadystatechange = () => {
-    if (imagedata.DONE) {
+    if (imagedata.readyState === imagedata.DONE) {
       const artistData = JSON.parse(imagedata.responseText);
       const img = document.querySelector('logo > img.placeholder');
       if (artistData.artist !== undefined) {
